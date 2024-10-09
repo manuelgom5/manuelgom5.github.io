@@ -1,0 +1,19 @@
+/* Cambiar el color de fondo */
+body {
+    background-color: #d7d7ee;
+}
+
+/* Cambiar el color del encabezado */
+h1, h2, h3, h4, h5, h6 {
+    color: #2c3e50;
+}
+
+/* Estilos para los enlaces */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
