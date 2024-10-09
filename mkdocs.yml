@@ -1,0 +1,8 @@
+site_name: Mkdocs Manuel Gómez
+site_url: https://manuelgom5.github.io/mi-proyecto
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - About: about.md
