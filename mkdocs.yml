@@ -6,6 +6,7 @@ theme:
 nav:
   - Home: index.md
   - About: about.md
+  - Práctica 2.1: README.md
 
 extra_css:
   - stylesheets/extra.css
