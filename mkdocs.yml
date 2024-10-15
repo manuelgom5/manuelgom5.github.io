@@ -6,7 +6,8 @@ theme:
 nav:
   - Home: index.md
   - About: about.md
-  - Actividad 2.1: practica2-1.md
+  - Actividad 2.1: ./practica2-1/practica2-1.md
+  - Actividad 2.2: ./practica2-2/practica2-2.md
 
 extra_css:
   - stylesheets/extra.css
