@@ -19,7 +19,7 @@ Una vez instalado, es crucial comprobar que Nginx se haya instalado correctament
 
 ![Captura Comprobación Nginx](./img/captura-2.JPG)
 
-Ahora, crearemos las carpetas necesarias para el sitio web que alojará Nginx. Para ello utilizaremos el comando **mkdir -p** para crear múltiples carpetas de manera recursiva, y en esas carpetas se almacenarán los archivos de tu sitio web.
+Ahora, crearemos las carpetas necesarias para el sitio web que alojará Nginx. Para ello utilizaremos el comando **mkdir -p** para crear múltiples carpetas de manera recursiva, y en esa carpeta almacenar los archivos del sitio web.
 
 ![Captura Creación de Carpetas](./img/captura-3.JPG)
 
@@ -48,7 +48,6 @@ Hacemos el enlace simbólico con el comando **ln -s** para hacer que Nginx lo re
 En nuestra máquina anfitriona, entra en la ruta **C:\Windows\System32\drivers\etc\hosts** con permisos de administrador y añade en la última línea la IP de tu Debian y el nombre de tu página web, esto hará que podamos acceder al sitio web de nuestra máquina virtual desde nuestro anfitrión.
 
 ![Captura 9](./img/captura-9.JPG)
-
 
 Comprobamos que las peticiones se estén registrando en los archivos de registro (logs) de Nginx.
 
@@ -109,7 +108,7 @@ Generamos el certificado utilizando OpenSSL.
 
 ![Captura 23 Generación Certificado HTTPS](./img/captura-23.JPG)
 
-Configuramos Nginx para que utilice HTTPS. Para ello, edita el archivo de configuración usando **sudo nano /etc/nginx/sites-available/tu-sitio-web**, y añade las rutas al certificad, la clave privada y asegurate que Nginx escuche en el puerto 443.
+Configuramos Nginx para que utilice HTTPS. Para ello, edita el archivo de configuración usando **sudo nano /etc/nginx/sites-available/tu-sitio-web**, y añade las rutas del certificado SSL, el nombre del servidor, el directorio principal y asegurate que Nginx escuche en el puerto 443.
 
 ![Captura 25](./img/captura-25.JPG)
 
