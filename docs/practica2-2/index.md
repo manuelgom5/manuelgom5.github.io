@@ -229,6 +229,8 @@ Reinicia el servidor y haz una prueba de acceso.
 
 Si quisieramos que nadie en tu red tuviera acceso simplemente cambia el **allow** por **deny**.
 
+### Cuestionarios
+
 **Cuestión 1**
 
 Supongamos que yo soy el cliente con la IP 172.1.10.15 e intento acceder al directorio web_muy_guay de mi sitio web, equivocándome al poner 
