@@ -12,7 +12,7 @@
 
 Utiliza el comando **dpkg -l | grep openssl**, en caso de que el resultado no sea el mismo, instala el paquete **openssl**, con el comando **sudo apt install openssl**
 
-![Paquetes necesarios para empezar la práctica](./img/Captura-1.jpg)
+![Paquetes necesarios para empezar la práctica](./img/Captura-1.JPG)
 
 El comando **dpkg -l** lista todos los paquetes instalados en el sistema con información detalla, mientras que **grep openssl** busca el nombre del paquete openssl dentro de nuestro sistema.
 
@@ -22,55 +22,55 @@ A continuación, vamos a crear los usuarios de nuestra página web con sus respe
 
 Utiliza el comando **sudo sh -c "echo -n 'usuario-web:' >> /etc/nginx/.htpasswd**, el cual creara el fichero **.htpasswd** y le agregará el nombre del usuario. 
 
-![Creamos carpeta .htpasswd y adjuntamos usuario](./img/Captura-2.jpg)
+![Creamos carpeta .htpasswd y adjuntamos usuario](./img/Captura-2.JPG)
 
 Haz lo mismo con las contraseñas, para ello usa el comando **sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"**, este comando será el encargado de guardar las contraseñas encriptadas, gracias al **openssl passwd -apr1**.
 
-![Adjuntamos contraseña](./img/Captura-3.jpg)
+![Adjuntamos contraseña](./img/Captura-3.JPG)
 
 - Crea dos usuarios, uno con tu nombre y otro con tu primero apellido.
 
 Debes de realizar el mismo proceso que antes, pero ahora crea un usuario con tu propio nombre, comando  **sudo sh -c "echo -n 'tu-nombre:' >> /etc/nginx/.htpasswd** para añadir al usuario y **sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"** para la contraseña.
 
-![Captura creación de usuairo autentificado](./img/Captura-4.jpg)
+![Captura creación de usuairo autentificado](./img/Captura-4.JPG)
 
 Usuario con mi apellido.
 
-![Captura creación de usuario autentificado](./img/Captura-5.jpg)
+![Captura creación de usuario autentificado](./img/Captura-5.JPG)
 
 - Comprueba que el usuario y la contraseña aparecen cifrados en el fichero:
 
 Para ello debemos revisar el archivo donde se almacenan las contraseña de nuestro servidor, en mi caso voy a utilizar un comando que visualiza lo que hay dentro del archivo sin necesidad de abrirlo, comando **sudo cat /etc/nginx/.htpasswd**
 
-![Captura que muestra los usuarios y sus contraseñas encriptadas](./img/Captura-6.jpg)
+![Captura que muestra los usuarios y sus contraseñas encriptadas](./img/Captura-6.JPG)
 
 ### 2. Configurando el servidor Nginx para usar una autentificación básica
 
 Añadimos la autenticación en el fichero **/etc/nginx/sites-availables/nombre-web**
 
-![Autenticación en la raíz del servidor](./img/Captura-7.jpg)
+![Autenticación en la raíz del servidor](./img/Captura-7.JPG)
 
 Reiniciamos el servidor y comprobamos que no haya ningún error.
 
-![Captura 8](./img/Captura-8.jpg)
+![Captura 8](./img/Captura-8.JPG)
 
 ### 3. Probando la nueva configuración
 
 Comprobación 1: Comprueba desde tu máquina física/anfritiona que puedes acceder a https://nombre-sitio-web y que se solicita la autenticación.
 
-![Inicio de Sesión Incorrecto](./img/Captura-9.jpg)
+![Inicio de Sesión Incorrecto](./img/Captura-9.JPG)
 
-![Inicio de Sesión Incorrecto](./img/Captura-10.jpg)
+![Inicio de Sesión Incorrecto](./img/Captura-10.JPG)
 
-![Inicio de Sesión Correcto](./img/Captura-11.jpg)
+![Inicio de Sesión Correcto](./img/Captura-11.JPG)
 
-![Inicio de Sesión Correcto](./img/Captura-12.jpg)
+![Inicio de Sesión Correcto](./img/Captura-12.JPG)
 
 Comprobación 2: Comprueba que si decides cancelar la autenticación, se te negará el acceso al sitio con un error. ¿Qué error es?
 
 **Error 401: Authorization required**
 
-![Cancelar autenticación](./img/Captura-13.jpg)
+![Cancelar autenticación](./img/Captura-13.JPG)
 
 ### Tareas
 
