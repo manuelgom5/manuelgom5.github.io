@@ -14,7 +14,7 @@
 
 ### Servidor Web
 
-1. Primero, vamos a clonar la máquina virtual que contiene nuestro servidor Nginx,
+1.  Primero, vamos a clonar la máquina virtual que contiene nuestro servidor Nginx,
 para crear un nuevo servidor que funcionará como proxy inverso.
 
 Para ello, haz click derecho sobre tu servidor Debian y selecciona Clonar, introduce el nombre
@@ -25,15 +25,15 @@ Esto es importante para asegurar que el proxy y el servidor tengan IPs distintas
 
 ![Clonamos máquina virtual](./img/Captura-0.JPG)
 
-2. Cambia el nombre que tuviera el archivo de configuración de nuestro servidor Nginx por el de **webserver**, el cual es una convención para facilitar la administración, usa el comando: **sudo mv /etc/nginx/sites-available/nombre-servidor /etc/nginx/sites-available/webserver**
+2.  Cambia el nombre que tuviera el archivo de configuración de nuestro servidor Nginx por el de **webserver**, el cual es una convención para facilitar la administración, usa el comando: **sudo mv /etc/nginx/sites-available/nombre-servidor /etc/nginx/sites-available/webserver**
 
 ![Cambiar nombre Archivo Configuración](./img/Captura-1.JPG)
 
-3. Cambiar el nombre del sitio web dentro de este archivo de configuración, para ello usa el comando  **sudo nano /etc/nginx/sites-available/nombre-servidor**, y modifica el nombre en la directiva **server_name**, 
+3.  Cambiar el nombre del sitio web dentro de este archivo de configuración, para ello usa el comando  **sudo nano /etc/nginx/sites-available/nombre-servidor**, y modifica el nombre en la directiva **server_name**, 
 
 ![Archivo Configuración Proxy](./img/Captura-2.JPG)
 
-4. Ahora vamos a eliminar el link simbólico antiguo con el comando **unlink nombre_del_link** dentro de la carpeta **sites-enabled** y crear el nuevo para el nuevo nombre de archivo.
+4.  Ahora vamos a eliminar el link simbólico antiguo con el comando **unlink nombre_del_link** dentro de la carpeta **sites-enabled** y crear el nuevo para el nuevo nombre de archivo.
 
 Eliminamos el anterior navegando hasta **sites_enabled** y usando el comando **unlink**, después comprueba que no aparezca con **ls -l**
 
@@ -43,7 +43,7 @@ Creamos el nuevo enlace simbólico.
 
 ![Nuevo enlace simbólico](./img/Captura-4.JPG)
 
-5. En el archivo de configuración del sitio web, en lugar de hacer que el servidor escuche en el puerto 80, cambiadlo al 8080, para acceder a el vuelve a introducir el comando **sudo nano /etc/nginx/sites-available/webserver**.
+5.  En el archivo de configuración del sitio web, en lugar de hacer que el servidor escuche en el puerto 80, cambiadlo al 8080, para acceder a el vuelve a introducir el comando **sudo nano /etc/nginx/sites-available/webserver**.
 
 Esto lo haremos para que todo quede más diferenciado y os quede más claro que la petición está pasando por el proxy inverso y llega al servidor web destino.
 
@@ -55,12 +55,12 @@ Reinicia Nginx para aplicar los cambios y comprueba el estado del servicio, **su
 
 ### Nginx Proxy Inverso
 
-1. Borramos el archivo de configuración y el enlace simbólico que fue clonado desde nuevo servidor, y lo sustituimos 
+1.  Borramos el archivo de configuración y el enlace simbólico que fue clonado desde nuevo servidor, y lo sustituimos 
 por un nuevo archivo de configuración que hará que este nuevo servidor actue como proxy, comando **sudo nano ejemplo-proxy**
 
 ![Archivo config sitio web](./img/Captura-7.JPG)
 
-2. Hacemos el enlace simbólico para que este archivo de configuración se active, y que así cuando hagamos el reinicio del servidor funcione.
+2.  Hacemos el enlace simbólico para que este archivo de configuración se active, y que así cuando hagamos el reinicio del servidor funcione.
 
 ![Comando enlace simbólico](./img/Captura-8.JPG)
 
@@ -68,11 +68,11 @@ Reiniciamos el servicio Nginx para surtir los cambios.
 
 ![Reiniciar servicio](./img/Captura-9.JPG)
 
-3. Añadimos al cliente la IP del proxy **ejemplo-proxy** junto a su **server_name**, accediendo a la ruta **C:\Windows\System32\drivers\etc\hosts**, con esto ya deberíamos poder acceder a la página web mediante el proxy.
+3.  Añadimos al cliente la IP del proxy **ejemplo-proxy** junto a su **server_name**, accediendo a la ruta **C:\Windows\System32\drivers\etc\hosts**, con esto ya deberíamos poder acceder a la página web mediante el proxy.
 
 ![Modificamos el archivo hosts](./img/Captura-10.JPG)
 
-4. Comprobamos que podemos acceder desde el cliente al servidor backend a través del proxy. Esto significa que el tráfico web esta siendo correctamente dirigido desde el cliente al proxy, y el proxy está reenviando las solicitudes al servidor backend.
+4.  Comprobamos que podemos acceder desde el cliente al servidor backend a través del proxy. Esto significa que el tráfico web esta siendo correctamente dirigido desde el cliente al proxy, y el proxy está reenviando las solicitudes al servidor backend.
 
 ![Probando conexión](./img/Captura-11.JPG)
 
