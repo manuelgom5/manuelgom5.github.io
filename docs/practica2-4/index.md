@@ -134,7 +134,7 @@ Al parar el servicio Nginx que controla nuestro servidor web, las peticiones dej
 
 ### Cuestión 1
 
-*Busca información de qué otros métodos de balanceo se pueden aplicar con Nginx y describe al menos 3 de ellos.*
+**Busca información de qué otros métodos de balanceo se pueden aplicar con Nginx y describe al menos 3 de ellos.**
 
 NGINX ofrece varios métodos de balanceo de carga:
 
@@ -146,7 +146,7 @@ NGINX ofrece varios métodos de balanceo de carga:
 
 ### Cuestión 2
 
-*Si quiero añadir 2 servidores web más al balanceo de carga, describe detalladamente qué configuración habría que añadir y dónde.*
+**Si quiero añadir 2 servidores web más al balanceo de carga, describe detalladamente qué configuración habría que añadir y dónde.**
 
 Solo debes añadir los dos servidores al archivo de configuración de nuestro servidor proxy, en este caso el archivo de configuración de **balanceo**. Para esto, abre el archivo de configuración de Nginx correspondiente y localiza el bloque **upstream** que define el grupo de servidores backend. Agrega las direcciones IP de los dos nuevos servidores dentro de este bloque, guarda los cambios y reinicia el servicio de Nginx para aplicar la nueva configuración.
 
@@ -157,8 +157,8 @@ Esto permitirá que el cliente pueda acceder correctamente a los nuevos servidor
 
 ### Cuestión 3
 
-*Describe todos los pasos que deberíamos seguir y configurar para realizar el balanceo de carga con una de las webs de prácticas anteriores.*
-*Indicad la configuración de todas las máquinas (webservers, proxy...) y de sus servicios*
+**Describe todos los pasos que deberíamos seguir y configurar para realizar el balanceo de carga con una de las webs de prácticas anteriores.**
+**Indicad la configuración de todas las máquinas (webservers, proxy...) y de sus servicios**
 
 En los servidores web, se debe modificar la directiva **server_name**.
 
