@@ -198,15 +198,15 @@ Una vez importado cambia su nombre.
 
 ![Captura](./img/Captura-53.JPG)
 
-Comprueba si tienes acceso al archivo llamado **robot.txt** dentro de ese directorio desde el navegador.
+Comprueba si puedes acceder al archivo **robots.txt** desde el navegador utilizando la URL de tu sitio en Netlify.
 
 ![Captura](./img/Captura-54.JPG)
 
-Modificalo para que aparezca tu nombre.
+Modificar archivo **robots.txt** para que incluya tu nombre.
 
 ![Captura](./img/Captura-55.JPG)
 
-Sube los resultados a Git y muestralo
+Sube los resultados realizados en el archivo **robot.txt** a tu repositorio de GitHub y muestra el resultado.
 
 ![Captura](./img/Captura-56.JPG)
 
