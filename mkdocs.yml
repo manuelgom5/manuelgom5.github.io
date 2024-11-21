@@ -12,6 +12,7 @@ nav:
   - Actividad 2.4 - Balanceo de carga con proxy inverso en Nginx: ./practica2-4/index.md
   - Actividad 2.5 - Proxy inverso y balanceo de carga con SSL en NGINX: ./practica2-5/index.md
   - Actividad 3.1 - Instalación de Tomcat: ./practica3-1/index.md
+  - Actividad 3.2 - Despiegue de Aplicaciones con Node Express y Netify:  ./practica3-2/index.md
 extra_css:
   - stylesheets/extra.css
 
