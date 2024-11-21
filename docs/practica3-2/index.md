@@ -198,14 +198,18 @@ Una vez importado cambia su nombre.
 
 ![Captura](./img/Captura-53.JPG)
 
+Comprueba si tienes acceso al archivo llamado **robot.txt** dentro de ese directorio desde el navegador.
 
+![Captura](./img/Captura-54.JPG)
 
-![](./img/Captura-54.JPG)
+Modificalo para que aparezca tu nombre.
 
-![](./img/Captura-55.JPG)
+![Captura](./img/Captura-55.JPG)
 
-![](./img/Captura-56.JPG)
+Sube los resultados a Git y muestralo
 
-![](./img/Captura-57.JPG)
+![Captura](./img/Captura-56.JPG)
 
-![](./img/Captura-58.JPG)
+![Captura](./img/Captura-57.JPG)
+
+![Captura](./img/Captura-58.JPG)
