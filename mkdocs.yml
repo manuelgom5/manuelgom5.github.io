@@ -14,7 +14,7 @@ nav:
   - Actividad 3.1 - Instalación de Tomcat: ./practica3-1/index.md
   - Actividad 3.2 - Despiegue de Aplicaciones con Node Express y Netify: ./practica3-2/index.md
   - Práctica 3.3 - Despliegue de una aplicación Flask (Python): ./practica3-3/index.md
-  - Práctica 4.1: ./practica4-1/index.md
+  - Práctica 4.1 - Configuración de un servidor Nginx con Hosts Virtuales y directorios de usuario: ./practica4-1/index.md
 extra_css:
   - stylesheets/extra.css
 
