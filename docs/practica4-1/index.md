@@ -2,106 +2,273 @@
 
 **Asignatura: Despliegue de Aplicaciones Web**
 
-**Fecha: 12/12/2024**
+**Fecha: 14/01/2024**
 
 **Curso: 2º de Desarrollo de Aplicaciones Web**
 
-#   Práctica 4.1: Configuración de un servidor Nginx con Host Virtuales y directorios de usuario
+## Práctica 4.1: Configuración de un servidor DNS
 
-El objetivo de esta práctica está en la configuración de un servidor Nginx que utilice host virtuales para alojar múltiples sitios web en un solo servidor y que cada host virtual apunte al directorio public_hml de distintos usuarios del sistema operativo Debian. De esta manera, cada usuario podrá gestionar su propio sitio web desde su carpeta personal.
+### Nota importante
 
-Lo primero que debemos hacer es instalar el servidor **Nginx** y comprobar que su servicio está funcionando correctamente.
+Antes de empezar la práctica, recuerda eliminar las entradas del archivo **/etc/hosts** para asegurar que la resolución de nombres va a nuestro servidor DNS.
 
-![Captura de estado Nginx](./img/Captura-1.JPG)
+![Archivo hosts](./img/Captura-1.JPG)
 
-A continuación, permitimos el tráfico en los puertos 80 (HTTP) y 22 (SSH) para permitir el acceso a las páginas web.
+### IPS DEL SERVIDOR Y CLIENTE
 
-![Captura de apertura de puertos](./img/Captura-2.JPG)
+**SERVER**
 
-##  Conexión al servidor
+![IP del servidor](./img/Captura-2.JPG)
 
-Para conectarnos por SSH desde nuestra máquina anfitriona, debemos de instalar el paquete **openssh-server** en nuestro servidor virtual Debian.
+**CLIENTE**
 
-![Instalación openssh](./img/Captura-3.JPG)
+![IP del cliente](./img/Captura-3.JPG)
 
-Una vez instalado, abrimos la terminal y nos conectamos a ella, mediante el comando **ssh nombre-usuario@IP**.
+Habilita el puerto 53 tanto para el servidor como para el cliente, para ello antes debes instalar el paquete **ufw** para gestionar los puertos, comandos **sudo apt install ufw** y **sudo ufw allow 53**.
 
-![Nos conectamos por SSH](./img/Captura-4.JPG)
+![Instalamos el paquete ufw](./img/Captura-4.JPG)
 
-##  Usuarios y carpetas
+![Habilitamos el puerto 53 DNS](./img/Captura-5.JPG)
 
-### Creación de usuarios, carpetas y página web estática
+En mi caso no las he eliminado, sino que las he comentado por si tengo que usarlas en el futuro, es lo mismo ya que dejan de ejecutarse en el script al comentarlas.
 
-Añadimos los dos usuarios y le introducimos su nueva contraseña segura, comandos **sudo useradd -m -s /bin/bash nombre-usuario** y **sudo passwd nombre-usuario**, la opción -m crea un directorio home para el nuevo usuario, mientras que -s crea una shell de inicio.
+### Instalación de servidor DNS
 
-![Crear usuarios y sus contraseñas](./img/Captura-5.JPG)
+Vamos a utilizar el paquete Bind que es una herramienta de software libre para plataformas Unix y Linux, y que es estándar para servidores DNS.
 
-Accedemos con el primer usuario, creamos su carpeta y le asignamos sus permisos correspondientes sobre esa carpeta, el último comando es para validar los permisos sobre la carpeta.
+Para instalarlo introduce el comando: **sudo apt-get install bind9 bind9utils bind9-doc**.
 
-![Creación de carpeta y permisos](./img/Captura-6.JPG)
+![Comando instalación Bind](./img/Captura-6.JPG)
 
-Creamos una página web básica en formato HTML dentro de la carpeta recién creada. Esta página se utilizará como sitio web estático del usuario.
+### Configuración del servidor
 
-![Creación index.html](./img/Captura-7.JPG)
+Accedemos al archivo **named.conf** dentro de **/etc/default** y modificamos la línea **OPTIONS** para indicar que solo queremos configurar y usar IPv4.
 
-### Repetición de los mismos pasos para el segundo usuario
+Comando para acceder al archivo: **sudo nano /etc/default/named** y modificamos la línea **OPTIONS** con **OPTIONS = "-u bind -4"** para que sólo use IPv4.
 
-Repetimos el proceso de creación de carpeta, asignación de permisos y creación de la página web estática para el segundo usuario.
+![Modificación de script para uso de IPv4](./img/Captura-7.JPG)
 
-![Creación de carpeta y permisos](./img/Captura-8.JPG)
+Acceso al archivo de configuración principal de Bind, donde se muestran los archivos de configuración que usaremos: **sudo nano /etc/bind/named.conf**.
 
-![Creación index.html](./img/Captura-9.JPG)
+![Archivos de configuración que usaremos se muestran en este script](./img/Captura-8.JPG)
 
-Comprobamos que nuestra página web se visualiza correctamente con nuestro archivo de configuración.
+### Configuración named.conf.options
 
-![Visualización archivo de configuración](./img/Captura-10.JPG)
+Hacemos una copia de seguridad antes de modificar el archivo de configuración **named.conf**, para evitar posibles problemas.
 
-Resultado.
+Comando **sudo cp /etc/bind/named.conf.options /etc/bind/named.conf.options.backup**.
 
-![Visualización página web](./img/Captura-11.JPG)
+![Copia de seguridad de named.conf.options](./img/Captura-9.JPG)
 
-## Configuración de certificados SSL
+Editamos el archivo **named.conf.options** y incluimos por motivos de seguridad, una lista de acceso para que solo puedan realizar consultas recursivas al servidor aquellos hosts que decidamos, denegamos las transferencias de zona, configuramos el puerto DNS 53 con nuestra IP de red privada, y comentamos la última línea **listen-on-v6 { any;};**.
 
-Para mejorar la seguridad de las páginas web de los usuarios, creamos certificados SSL para ambos sitios web.
+```
+    Archivo /etc/bind/named.conf.options
 
-![Certificado SSL primer usuario](./img/Captura-12.JPG)
+    acl confiables {
+        192.168.100.0/24; // Dispositivos confiables autorizados para usar este servidor DNS
+    };
 
-![Certificado SSL segundo usuario](./img/Captura-13.JPG)
+    options {
+        directory "/var/cache/bind";
 
-##  Archivos de Configuración de Nginx
+        // If there is a firewall between you and nameservers you want
+        // to talk to, you may need to fix the firewall to allow multiple
+        // ports to talk.  See http://www.kb.cert.org/vuls/id/800113
 
-Configuramos los archivos correspondientes para que Nginx sirva correctamente los sitios web de los usuarios. A continuación, mostramos las configuraciones realizadas para cada usuario:
+        // If your ISP provided one or more IP addresses for stable
+        // nameservers, you probably want to use them as forwarders.
+        // Uncomment the following block, and insert the addresses replacing
+        // the all-0's placeholder.
 
-![Archivo de config del primer usuario](./img/Captura-14.JPG)
+        // forwarders {
+        //      0.0.0.0;
+        // };
+        allow-recursion {confiables;};
+        allow-transfer {none;};
+        listen-on port 53 {192.168.100.27;}; // Pon tu dirección IP
+        recursion yes;
 
-![Archivo de config del segundo usuario](./img/Captura-15.JPG)
+        //========================================================================
+        // If BIND logs error messages about the root key being expired,
+        // you will need to update your keys.  See https://www.isc.org/bind-keys
+        //========================================================================
+        dnssec-validation yes;
 
-## Creación de Enlaces Simbólicos y Reinicio del Servidor
+        // listen-on-v6 { any; };
+    };
+```
 
-Creamos los enlaces simbólicos para que Nginx apunte a los directorios de los usuarios y sus respectivas páginas web. Después de crear los enlaces, comprobamos la sintaxis de la configuración y reiniciamos el servidor para aplicar los cambios.
+![Cambios en el script named.conf.options](./img/Captura-10.JPG)
 
-![Enlaces simbólicos](./img/Captura-16.JPG)
+Comprobamos que la configuración es correcta, con el comando: **sudo named-checkconf**.
 
-También permitimos el tráfico en el puerto 443, que es utilizado para HTTPS.
+![Comprobación de configuración script named.conf.options](./img/Captura-11.JPG)
 
-![Apertura del puerto 443](./img/Captura-17.JPG)
+Reiniciamos el servicio **named** y comprobamos que su estado es correcto.
 
-##  Resultados
+Comandos: **sudo systemctl restart named** y **sudo systemctl status named**.
 
-Una vez completada la configuración, verificamos el funcionamiento de las páginas web de ambos usuarios:
+![Comprobación servicio named](./img/Captura-12.JPG)
 
-Resultado con el usuario Antonio.
+### Configuración named.conf.local
 
-![Visualización entrada a página](./img/Captura-18.JPG)
+Accedemos a este archivo que está dentro de **/etc/bind/** y definimos una nueva zona, con un servidor DNS maestro y la ubicación del archivo de zona que después crearemos.
 
-![Resultado de la página web](./img/Captura-19.JPG)
+```
+    Archivo /etc/bind/named.conf.local
 
-![Certificado](./img/Captura-20.JPG)
+    //
+    // Do any local configuration here
+    //
 
-Resultado con el usuario Sergio.
+    // Consider adding the 1918 zones here, if they are not used in your
+    // organization
+    //include "/etc/bind/zones.rfc1918";
 
-![Visualización entrada a página](./img/Captura-21.JPG)
+    zone "manuelgom.es" {   
+            type master;    //  Define esta zona como principal
+            file "/ect/bind/db.manuelgom.es"; // Ruta donde ubicamos nuestro archivo de zona
+    };
+```
 
-![Resultado de la página web](./img/Captura-22.JPG)
+![Archivo de configuración named.conf.local](./img/Captura-13.JPG)
 
-![Certificado](./img/Captura-23.JPG)
+### Creación del archivo de zona
+
+Creamos el archivo de zona de resolución directa en el directorio que hemos indicado antes y con el mismo nombre, esta zona será la encargada de traducir nombres de dominio en direcciones IP.
+
+Los registros SOA detallan aspectos de la zona autoritativa, los NS indican los servidores DNS de la zona y los A las IPs respectivas.
+
+En la última línea debéis poner vuestra IPs privadas.
+
+![Contenido archivo de zona](./img/Captura-14.JPG)
+
+```
+    Archivo /etc/bind/db.manuelgom.es
+
+    $TTL    604800
+    @       IN      SOA     debian.manuelgom.es.    admin.manuelgom.es. (
+                    2025011401 ;Serial
+                    3600       ;Refresh
+                    1800       ;Retry
+                    604800     ;Expire
+                    86400      ;Minimum TTL
+    )
+
+    ;Definimos el servidor de nombres
+    @       IN      NS      debian.manuelgom.es.
+
+    ;Definimos la IP del servidor de nombres
+    debian  IN      A       192.168.100.27
+```
+
+### Creación del archivo de zona para la resolución inversa
+
+En primer lugar, debemos de modificar el archivo **named.conf.local** y añadir las líneas correspondientes a la zona inversa, que será la encargada de traducir direcciones IP a nombres de dominio.
+
+![Modificación config named.conf.local para zona inversa](./img/Captura-15.JPG)
+
+```
+    Archivo /etc/bind/named.conf.local
+
+    //
+    // Do any local configuration here
+    //
+
+    // Consider adding the 1918 zones here, if they are not used in your
+    // organization
+    //include "/etc/bind/zones.rfc1918";
+
+    zone "manuelgom.es" {
+            type master;
+            file "/etc/bind/db.manuelgom.es"; // Ruta donde ubicamos nuestro archivo de zona
+    };
+
+    zone "100.168.192.in-addr.arpa" {
+            type master;
+            file "/etc/bind/db.100.168.192"; // Ruta donde ubicamos nuestro archivo de zona inversa
+    };
+```
+
+![Creamos el archivo de configuración inversa](./img/Captura-16.JPG)
+
+### Comprobación de las configuraciones
+
+Comprobación de la zona de resolución directa, con el comando **sudo named checkzone db.manuelgom.es db.100.168.192**
+
+![Verifica el script zona de resolución directa](./img/Captura-17.JPG)
+
+Comprobación de la zona de resolución inversa, con el comando **sudo named checkzone db.100.168.192** (no se porque tengo que pasarle tanto el archivo de zona inversa como directa)
+
+![Verifica el script zona de resolución inversa](./img/Captura-18.JPG)
+
+Reiniciamos el servicio y comprobamos que su estado sea correcto, **sudo systemctl restart named** y **sudo systemctl status named**.
+
+![Reinicio y comprobación de estado del servicio named](./img/Captura-19.JPG)
+
+**Atención. Es muy importante que el cliente esté configurado para usar como servidor DNS el que acabamos de instalar y configurar. Ya sea Windows, ya sea Linux, debéis cambiar vuestra configuración de red para que la máquina con la que hagáis las pruebas utilice este servidor DNS como el principal.**
+
+![Añadimos el DNS a nuestro cliente](./img/Captura-20.JPG)
+
+Añadimos el DNS de nuestro servidor en el cliente, modificando el archivo **/etc/hosts**.
+
+![Configuración DNS del cliente](./img/Captura-21.JPG)
+
+Comprobamos el acceso a nuestro servidor DNS mediante los comandos **nslookup** y **dig**.
+
+![Resolución directa con nslookup](./img/Captura-22.JPG)
+
+![Resolución directa con dig -x](./img/Captura-23.JPG)
+
+![Resolución inversa con nslookup](./img/Captura-24.JPG)
+
+![Resolución inversa con dig](./img/Captura-25.JPG)
+
+### Comprobación de las resoluciones y las consultas
+
+Podemos comprobar desde los clientes con nslookup las resoluciones directa e inversa.
+
+### Cuestiones finales
+
+**Cuestión 1: ¿Qué pasará si un cliente de una red diferentes a la tuya intenta hacer uso de tu DNS de alguna manera, le funcionará?¿Por qué, en qué parte de la configuración puede verse?**
+
+*No, debido a que en el archivo **/etc/bind/named.conf.options** le hemos indicado que los que pueden hacer uso de nuestro DNS son los dispositivos dentro de la red **192.168.100.0/24** mediante la **ACL confiables**.*
+
+**Cuestión 2: ¿Por qué tenemos que permitir las consultas recursivas en la configuración?**
+
+*Para permitir que nuestro servidor DNS actué como intermediario y realize búsquedas en otros servidores DNS, preguntándoles si conocen la IP asociada al recurso que está solicitando nuestro cliente, una vez que la encuentra el contenido es visible por pantalla.*
+
+**Cuestión 3: El servidor DNS que acabáis de montar, ¿es autoritativo?¿Por qué?**
+
+*Sí, porque queremos especificar información sobre nuestra zona DNS, como el servidor de nombre primario, el email del administrador, y varios temporizadores sobre como funcionará nuestro servicio, para ello debemos definir el servidor de nombre primario (SOA).*
+
+**Cuestión 4: ¿Dónde podemos encontrar la directiva $ORIGIN y para qué sirve?**
+
+*Transforma los nombre que no acaben en punto (nombre de dominio base) convirtiéndolos en nombres FQDN (fully qualified domain name).*
+
+**Cuestión 5: ¿Una zona es idéntico a un dominio?**
+
+*No, una zona es una parte del dominio que está gestionada por un servidor DNS.*
+
+**Cuestión 6: ¿Pueden editarse los archivos de zona de un servidor esclavo/secundario?**
+
+*No, los archivos de un servidor esclavo son obtenidos de otro servidor autorizado para la zona, normalmente, de un servidor maestro maestro mediante transferencia de zona, los ficheros son de solo lectura, por lo tanto, no se pueden modificar.*
+
+**Cuestión 7: ¿Por qué podría querer tener más de un servidor esclavo para una misma zona?**
+
+-   *Para reducir y repartir la carga entre varios servidores DNS.*
+-   *Tener mayor torelancia a fallos. Si uno de los servidores falla, los esclavos pueden seguir    respondiendo las consultas de los clientes.*
+-   *Ofrecer mayor rapidez, mejora el tiempo de respuesta en usuarios de otras regiones.*
+
+**Cuestión 8: ¿Cuántos servidores raíz existen?**
+
+*Existen 13 servidores raíz identificables por letras (de la A a la M), pero cada uno de ellos tienen copias distribuidas por todo el mundo mediante Anycast para garantizar su disponibilidad y rendimiento, tanto los servidores raíz como las copias son identificables mediante la misma IP.*
+
+**Cuestión 9: ¿Qué es una consulta iterativa de referencia?**
+
+*Es una respuesta parcial a la consulta, en la que nuestro servidor DNS indica otros servidores a los que se le puede consultar para resolver el nombre.*
+
+**Cuestión 10: En una resolución inversa, ¿a qué nombre se mapearía la dirección IP 172.16.34.56?**
+
+*56.34.16.172.in-addr.arpa*
