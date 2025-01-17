@@ -204,7 +204,7 @@ Comando: **sudo nano /etc/bind/named.conf.local**.
 
 ![Modificación config named.conf.local para zona inversa](./img/Captura-15.JPG)
 
-Creamos el archivo de configuración SOA para la zona inversa.
+Creamos el archivo de configuración SOA para la zona inversa, y definimos el servidor de nombres, y el valor del último octeto de bits en decimal, tanto del servidor como del cliente con un registro PTR, que convierte la dirección IP al nombre de dominio.
 
 Comando **sudo nano /etc/bind/db.116.168.192**
 
