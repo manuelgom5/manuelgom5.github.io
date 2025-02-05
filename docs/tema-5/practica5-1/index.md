@@ -10,7 +10,7 @@
 
 **1. Crear un repositorio en vuestro GitHub llamado DEAW.**
 
-*Dirigete a tu cuenta de GitHub, haz clic en el botón "New Repository", luego añade un nombre para el repositorio, el propietario, una breve descripción de su contenido y elige si será público o privado.*
+*Dirigete a tu cuenta de GitHub, haz clic en el botón ``New Repository``, luego añade un nombre para el repositorio, el propietario, una breve descripción de su contenido y elige si será público o privado.*
 
 ![Creación del repositorio en GitHub](./img/Captura-1.JPG)
 
@@ -36,7 +36,7 @@
     Escribir un pequeño texto en este README a propósito del repositorio y el módulo para el que se utilizará.
 ```
 
-*Puedes utilizar el comando ``echo -e`` para introducir el texto del archivo a la misma vez que lo crea -> **echo -e "Capítulo 1: Introducción a Git\nCapítulo 2: Flujo de trabajo básico\n" > README.md***.
+*Puedes utilizar el comando ``echo -e`` para introducir el texto del archivo a la misma vez que lo crea -> ``echo -e "Capítulo 1: Introducción a Git\nCapítulo 2: Flujo de trabajo básico\n" > README.md``*.
 
 ![Contenido del README.md](./img/Captura-3.JPG)
 
@@ -62,7 +62,7 @@
 
 **2.  Crear en el repositorio local una carpeta llamada ``privada``.**
 
-3.  Realizar los cambios oportunos para que tanto el archivo como la carpeta sean ignorados por git.
+**3.  Realizar los cambios oportunos para que tanto el archivo como la carpeta sean ignorados por git.**
 
 *Para crear el archivo, usa ``touch privado.txt``, y para la carpeta ``mkdir privada``, luego crea un archivo llamado ``.gitignore`` que incluya la ruta de ambos para que se vean y se puedan usar solo en local.*
 
@@ -70,9 +70,9 @@
 
 ### Añadir fichero1.txt
 
-**1. Añadir fichero **1.txt** al repositorio local.**
+**1. Añadir fichero ``1.txt`` al repositorio local.**
 
-*Para agregar el archivo al repositorio, primero añade el archivo al área de seguimiento con git add, ya que acaba de ser creado, agregale un mensaje con git commit -m y le haces un git push para enviar los cambios al repositorio remoto.*
+*Para agregar el archivo al repositorio, primero añade el archivo al área de seguimiento con ``git add``, ya que acaba de ser creado, agregale un mensaje con ``git commit -m`` y le haces un ``git push`` para enviar los cambios al repositorio remoto.*
 
 ![Contenido del archivo 1.txt y su subida junto al .gitignore](./img/Captura-7.JPG)
 
@@ -92,7 +92,7 @@
 
 **1.  Subir los cambios al repositorio remoto.**
 
-*Utiliza el comando git push origin nombreTag para agregarla a Github, aparecerá en el repositorio bajo el nombre de tags.*
+*Utiliza el comando ``git push origin nombreTag`` para agregarla a Github, aparecerá en el repositorio bajo el nombre de tags.*
 
 ![Creación del tag](./img/Captura-10.JPG)
 
@@ -102,13 +102,13 @@
 
 **1.  Poner una foto en vuestro perfil de GitHub.**
 
-*Dirigete a la sección de "Settings" y selecciona en editar tu foto.*
+*Dirigete a la sección de ``Settings`` y selecciona en editar tu foto.*
 
 ![Cambiar foto de perfil](./img/Captura-12.JPG)
 
 **2.  Poner el doble factor de autentificación en vuestra cuenta de GitHub.**
 
-*Ve a "Settings" > "Password and Authentication", y configura un método adicional para proteger tu cuenta. Esto asegurará que, al acceder desde tu equipo o cualquier otro dispositivo, necesitarás un segundo factor de verificación, como el acceso a tu móvil, para confirmar tu identidad y realizar acciones sensibles en tu cuenta.*
+*Ve a ``Settings`` > ``Password and Authentication``, y configura un método adicional para proteger tu cuenta. Esto asegurará que, al acceder desde tu equipo o cualquier otro dispositivo, necesitarás un segundo factor de verificación, como el acceso a tu móvil, para confirmar tu identidad y realizar acciones sensibles en tu cuenta.*
 
 ![Password and authentication](./img/Captura-13.JPG)
 
@@ -116,19 +116,19 @@
 
 **1.  Preguntar los nombres de usuario de GitHub de 2 de tus compañeros de clase, búscalos y sigueles.**
 
-*En "Your Profile" puedes ver a las personas que estás siguiendo y a quienes te siguen. Si haces clic sobre sus nombres, podrás ver más detalles de sus perfiles.*
+*En ``Your Profile`` puedes ver a las personas que estás siguiendo y a quienes te siguen. Si haces clic sobre sus nombres, podrás ver más detalles de sus perfiles.*
 
 ![Seguir compañeros](./img/Captura-14.JPG)
 
 **2.  Seguir los repositorios ``DEAW`` del resto de tus compañeros.**
 
-*Para seguir un repositorio, accede a él y haz clic en el botón "Watch". En mi caso, he seleccionado recibir notificaciones cada vez que haya cambios, menciones o comentarios en el repositorio de mi compañero.*
+*Para seguir un repositorio, accede a él y haz clic en el botón ``Watch``. En mi caso, he seleccionado recibir notificaciones cada vez que haya cambios, menciones o comentarios en el repositorio de mi compañero.*
 
 ![Seguir repositorios](./img/Captura-15.JPG)
 
 **3.  Añadir una estrella a los repositorios ``DEAW`` del resto de tus compañeros.**
 
-*El botón para añadir estrellas se encuentra junto al botón de seguimiento del repositorio. Los repositorios a los que des una estrella se pueden visualizar en la sección "Your profile".*
+*El botón para añadir estrellas se encuentra junto al botón de seguimiento del repositorio. Los repositorios a los que des una estrella se pueden visualizar en la sección ``Your profile``.*
 
 ![Añadir estrella](./img/Captura-16.JPG)
 
@@ -150,7 +150,7 @@
 
 **1.  Poner a ``github.com/arammes003`` como colaborador del repositorio ``DEAW``.**
 
-*Para hacerlo, accede a los ajustes (Settings) de tu repositorio > Collaborators, y añade su nombre de usuario.*
+*Para hacerlo, accede a los ``ajustes (Settings) de tu repositorio`` > ``Collaborators``, y añade su nombre de usuario.*
 
 ![Añadir colaborador](./img/Captura-19.JPG)
 
@@ -174,7 +174,7 @@
 
 **1.  Añadir un fichero ``2.txt`` en la rama ``v0.2``.**
 
-*También puedes hacerlo con echo -e, como te mostré previamente.*
+*También puedes crearlo con ``echo -e`` como te mostré previamente. Aunque estés en otra rama, el proceso de ``add`` y ``commit`` sigue siendo el mismo*.
 
 ![Añadir archivo 2.txt](./img/Captura-21.JPG)
 
@@ -182,7 +182,7 @@
 
 **1.  Subir los cambios al repositorio remoto.**
 
-*Puedes subir la rama y su contenido haciendo uso del comando ``git push origin NombreRama``*
+*Puedes subir la rama y su contenido haciendo uso del comando ``git push origin NombreRama``*.
 
 ![Subir rama v0.2](./img/Captura-22.JPG)
 
@@ -258,7 +258,7 @@
 
 **1.  Listar los distintos commits con sus ramas y sus tags.**
 
-*El comando git log --oneline --decorate --graph --all muestra cada commit en una sola línea, con todas sus referencias (nombres ramas, tags, merges)*
+*El comando ``git log --oneline --decorate --graph --all`` muestra cada commit en una sola línea, con todas sus referencias (nombres ramas, tags, merges)*
 
 ![Listado de cambios](./img/Captura-35.JPG)
 
@@ -272,9 +272,9 @@
     Nota
 
     Cuando se habla de **zona de intercambio temporal** o zona **staging**, estamos hablando de un add
-
-    ![Enunciado](./img/Enunciado-2.JPG)
-
+```
+![Enunciado](./img/Enunciado-2.JPG)
+```
     Si tenéis dudas para realizar estos ejercicios, podéis consultar la [siguiente web](https://aprendeconalf.es/docencia/git/manual/)
 ```
 
@@ -351,13 +351,13 @@
 ``Capítulo 3: Gestión de ramas``
 ``Capítulo 4: Repositorio de ramas``
 
-*Comando ``echo -e``*.
+*Comando ``echo -e`` para crear el fichero a la misma vez que agregas su contenido*.
 
 ![Nuevo contenido indice.txt](./img/Captura-46.JPG)
 
 **Mostrar los cambios con respecto a la última versión guardada en el repositorio.**
 
-*Comando ``git diff NombreArchivo``*.
+*Para ello utiliza el comando ``git diff HEAD``, también se puede usar para ver los cambios en los archivos o otras ramas*.
 
 ![Mostrar los cambios en el repo](./img/Captura-47.JPG)
 
@@ -379,6 +379,8 @@
 
 **Volver a mostrar los últimos cambios del repositorio.**
 
+*Para ello existen varios comandos, en este caso he usado el comando ``git show HEAD``*.
+
 ![Mostrar últimos cambios](./img/Captura-51.JPG)
 
 ## Ejercicios de manejo del historial de cambios
@@ -387,15 +389,15 @@
 
 **Mostrar el historial de cambios del repositorio.**
 
-*Comando ``git log``*,
+*Comando ``git log`` que incluye información sobre cada commit, como el identificador, autor, fecha y mensaje de commit*.
 
 ![Historial de commits](./img/Captura-52.JPG)
 
-**Crear la carpeta capitulos y crear dentro de ella el fichero capitulo1.txt con el siguiente texto.***
+**Crear la carpeta capitulos y crear dentro de ella el fichero capitulo1.txt con el siguiente texto.**
 
 ``Git es un sistema de control de versiones ideado por Linus Torvalds.``
 
-*Comandos mkdir para agregar la carpeta, y echo para crear el fichero con su contenido*.
+*Comandos ``mkdir`` para crear la carpeta, y ``echo`` para crear el fichero con su contenido*.
 
 ![Creación de la carpeta y archivo capitulo1.txt con su contenido](./img/Captura-53.JPG)
 
@@ -453,6 +455,8 @@
 
 **Añadir al final del fichero ``indice.txt`` la siguiente línea:**
 
+*Esto se puede realizar con el comando ``echo`` y la doble redirección.*
+
 ``Capítulo 5: Conceptos avanzados``
 
 ![Contenido actualizado del archivo indice.txt con la nueva línea](./img/Captura-65.JPG)
@@ -468,342 +472,382 @@
 
 **Mostrar quién ha hecho cambios sobre el fichero ``indice.txt``.**
 
+*Con el comando ``git annotate`` alias de ``git blame`` podrás ver quién modificó cada línea de un archivo y en qué commit.*
+
 ![Detalle de quién ha hecho cambios sobre el archivo indice.txt](./img/Captura-68.JPG)
 
 ## Ejercicios de deshacer cambios
 
 ### Ejercicio 1
 
-Eliminar la última línea del fichero ``indice.txt`` y guardarlo.
+**Eliminar la última línea del fichero ``indice.txt`` y guardarlo.**
 
-![](./img/Captura-69.JPG)
+*Accedemos al archivo con ``nano NombreFichero`` y modificamos el fichero.*
 
-Comprobar el estado del repositorio.
+![Eliminar la última línea](./img/Captura-69.JPG)
 
-![](./img/Captura-70.JPG)
+**Comprobar el estado del repositorio.**
 
-Deshacer los cambios realizados en el fichero ``indice.txt`` para volver a la versión anterior del fichero.
+![Comprobar estado del repositorio](./img/Captura-70.JPG)
 
-![](./img/Captura-71.JPG)
+**Deshacer los cambios realizados en el fichero ``indice.txt`` para volver a la versión anterior del fichero.**
 
-Volver a comprobar el estado del repositorio.
+*Con el comando ``git restore`` puedes deshacer cambios en tu directorio de trabajo, volviendo a una versión anterior de los archivos, ya sea desde el último commit o desde un commit específico.*
 
-![](./img/Captura-72.JPG)
+![Deshacer cambios](./img/Captura-71.JPG)
+
+**Volver a comprobar el estado del repositorio.**
+
+*Después de restaurar el archivo a una versión anterior que ya había sido commiteada, no se detectan cambios pendientes.*
+
+![Volver a comprobar el estado del repositorio](./img/Captura-72.JPG)
 
 ### Ejercicio 2
 
-Eliminar la última línea del fichero ``indice.txt`` y guardarlo.
+**Eliminar la última línea del fichero ``indice.txt`` y guardarlo.**
 
-![](./img/Captura-73.JPG)
+![Elimina última línea](./img/Captura-73.JPG)
 
-Añadir los cambios a la zona de intercambio temporal.
+**Añadir los cambios a la zona de intercambio temporal.**
 
-![](./img/Captura-74.JPG)
+![Añadir a la zona de intercambio temporal](./img/Captura-74.JPG)
 
-Comprobar de nuevo el estado del repositorio.
+**Comprobar de nuevo el estado del repositorio.**
 
-![](./img/Captura-75.JPG)
+![Comprobar estado del repositorio](./img/Captura-75.JPG)
 
-Quitar los cambios de la zona de intercambio temporal, pero mantenerlos en el directorio de trabajo.
+**Quitar los cambios de la zona de intercambio temporal, pero mantenerlos en el directorio de trabajo.**
 
-![](./img/Captura-76.JPG)
+*Lo podemos lograr gracias al comando ``git reset``, que se utiliza para deshacer cambios en el repositorio, en la área de staging, directorio de trabajo, o incluso en commits anteriores, en este caso solo introduce el nombre del archivo que has añadido al área de staging.*
 
-Comprobar de nuevo el estado del repositorio.
+![Quitar cambios de la zona de intercambio temporal](./img/Captura-76.JPG)
 
-![](./img/Captura-77.JPG)
+**Comprobar de nuevo el estado del repositorio.**
 
-Deshacer los cambios realizados en el fichero ``indice.txt`` para volver a la versión anterior del fichero.
+![Comprobar estado después de quitar cambios de la zona de intercambio temporal](./img/Captura-77.JPG)
 
-![](./img/Captura-78.JPG)
+**Deshacer los cambios realizados en el fichero ``indice.txt`` para volver a la versión anterior del fichero.**
 
-Volver a comprobar el estado del repositorio.
+*Volvemos a como estaba el archivo ``indice.txt`` en el commit, usando ``git restore``*.
 
-![](./img/Captura-79.JPG)
+![Deshacer cambios](./img/Captura-78.JPG)
+
+**Volver a comprobar el estado del repositorio.**
+
+![Comprobar estado después de deshacer cambios](./img/Captura-79.JPG)
 
 ### Ejercicio 3
 
-Eliminar la última línea del fichero ``indice.txt`` y guardarlo.
+**Eliminar la última línea del fichero ``indice.txt`` y guardarlo.**
 
-![](./img/Captura-80.JPG)
+![Eliminar última línea de índice.txt](./img/Captura-80.JPG)
 
-Eliminar el fichero ``capitulos/capitulo3.txt``.
+**Eliminar el fichero ``capitulos/capitulo3.txt``**.
 
-![](./img/Captura-81.JPG)
+*Comando ``rm`` para eliminar ficheros*.
 
-Añadir un fichero nuevo ``capitulos/capitulo4.txt`` vacío.
+![Eliminar capitulos/capitulo3.txt](./img/Captura-81.JPG)
 
-![](./img/Captura-82.JPG)
+**Añadir un fichero nuevo ``capitulos/capitulo4.txt`` vacío**.
 
-Añadir los cambios a la zona de intercambio temporal.
+*Con touch puedes crear ficheros sin su contenido*.
 
-![](./img/Captura-83.JPG)
+![Añadir nuevo fichero vacío](./img/Captura-82.JPG)
 
-Comprobar de nuevo el estado del repositorio.
+**Añadir los cambios a la zona de intercambio temporal**.
 
-![](./img/Captura-84.JPG)
+![Añadir cambios a la zona de intercambio temporal](./img/Captura-83.JPG)
 
-Quitar los cambios de la zona de intercambio temporal, pero mantenerlos en el directorio de trabajo.
+**Comprobar de nuevo el estado del repositorio**.
 
-![](./img/Captura-85.JPG)
+![Comprobar estado del repositorio](./img/Captura-84.JPG)
 
-Comprobar de nuevo el estado del repositorio.
+**Quitar los cambios de la zona de intercambio temporal, pero mantenerlos en el directorio de trabajo**.
 
-![](./img/Captura-86.JPG)
+*Posible error: mejor utiliza ``git restore --staged NombreFichero``*.
 
-Deshacer los cambios realizados para volver a la versión del repositorio.
+![Quitar cambios de la zona de intercambio temporal](./img/Captura-85.JPG)
 
-![](./img/Captura-87.JPG)
+**Comprobar de nuevo el estado del repositorio**.
 
-Volver a comprobar el estado del repositorio.
+![Comprobar estado después de quitar cambios de la zona](./img/Captura-86.JPG)
 
-![](./img/Captura-88.JPG)
+**Deshacer los cambios realizados para volver a la versión del repositorio**.
+
+*Comando ``git clean -f``, se usa para eliminar archivos no rastreados en el directorio de trabajo.*
+
+![Deshacer cambios realizados](./img/Captura-87.JPG)
+
+**Volver a comprobar el estado del repositorio**.
+
+![Comprobar estado después de deshacer cambios](./img/Captura-88.JPG)
 
 ### Ejercicio 4
 
-Eliminar la última línea del fichero ``indice.txt`` y guardarlo.
+**Eliminar la última línea del fichero ``indice.txt`` y guardarlo.**
 
-![](./img/Captura-89.JPG)
+![Elimina última línea de indice.txt](./img/Captura-89.JPG)
 
-Eliminar el fichero ``capitulos/capitulo3.txt``.
+**Eliminar el fichero ``capitulos/capitulo3.txt``.**
 
-![](./img/Captura-90.JPG)
+*Usa ``rm`` para borrar el fichero.*
 
-Añadir los cambios a la zona de intercambio temporal y hacer un commit con el mensaje "Borrado accidental."
+![Eliminar capitulos/capitulo3.txt](./img/Captura-90.JPG)
 
-![](./img/Captura-91.JPG)
+**Añadir los cambios a la zona de intercambio temporal y hacer un commit con el mensaje "Borrado accidental."**
 
-Comprobar el historial del repositorio.
+![Añadir cambios y hacer commit "Borrado accidental"](./img/Captura-91.JPG)
 
-![](./img/Captura-92.JPG)
+**Comprobar el historial del repositorio.**
 
-Deshacer el último commit pero mantener los cambios anterioes en el directorio de trabajo y la zona de intercambio temporal.
+![Comprobar historial del repositorio](./img/Captura-92.JPG)
 
-![](./img/Captura-93.JPG)
+**Deshacer el último commit pero mantener los cambios anteriores en el directorio de trabajo y la zona de intercambio temporal.**
 
-Comprobar el historial y el estado del repositorio.
+*Comando ``git reset --soft`` permite realizar estos cambios tanto en la rama principal como en otras subramas, manteniendo los cambios anteriores en el directorio de trabajo y zona de intercambio*.
 
-![](./img/Captura-94.JPG)
+![Deshacer el último commit y mantener los cambios](./img/Captura-93.JPG)
 
-Volver a hacer el commit con el mismo mensaje de antes.
+**Comprobar el historial y el estado del repositorio.**
 
-![](./img/Captura-95.JPG)
+![Comprobar historial y estado después de deshacer commit](./img/Captura-94.JPG)
 
-Deshacer el último commit y los cambios anteriores del directorio de trabajo volviendo a la versión anterior del repositorio.
+**Volver a hacer el commit con el mismo mensaje de antes.**
 
-![](./img/Captura-96.JPG)
+![Hacer commit nuevamente con el mismo mensaje](./img/Captura-95.JPG)
 
-Comprobar de nuevo el historial y el estado del repositorio.
+**Deshacer el último commit y los cambios anteriores del directorio de trabajo volviendo a la versión anterior del repositorio.**
 
-![](./img/Captura-97.JPG)
+*Comando ``git reset --hard`` deshace el último commit, eliminando todos los cambios en el directorio de trabajo que no hayan sido guardados.*
+
+![Deshacer el último commit y los cambios en el directorio](./img/Captura-96.JPG)
+
+**Comprobar de nuevo el historial y el estado del repositorio.**
+
+![Comprobar historial y estado después de deshacer todo](./img/Captura-97.JPG)
 
 ## Ejercicios de gestión de ramas
 
 ### Ejercicio 1
 
-Crear una nueva rama bibliografia y mostrar las ramas del repositorio.
+**Crear una nueva rama bibliografia y mostrar las ramas del repositorio.**
 
-![](./img/Captura-98.JPG)
+*Comando ``git branch NombreRama`` para crearla y ``git branch`` para mostrarlas.*
+
+![Crea nueva rama bibliografía y mostrar ramas](./img/Captura-98.JPG)
 
 ### Ejercicio 2
 
-Crear el fichero ``capitulos/capitulo4.txt`` y añadir el texto siguiente:
+**Crear el fichero ``capitulos/capitulo4.txt`` y añadir el texto siguiente:**
 
-En este capítulo veremos como usar GitHub para alojar repositorios en remoto.
+``En este capítulo veremos como usar GitHub para alojar repositorios en remoto.``
 
-![](./img/Captura-99.JPG)
+![Crea capitulos/capitulo4.txt y añadir texto](./img/Captura-99.JPG)
 
-Añadir los cambios a la zona de intercambio temporal.
+**Añadir los cambios a la zona de intercambio temporal.**
 
-![](./img/Captura-100.JPG)
+![Añadir cambios a la zona de intercambio temporal](./img/Captura-100.JPG)
 
-Hacer un commit con el mensaje "Añadido capítulo 4."
+**Hacer un commit con el mensaje ``Añadido capítulo 4.``**
 
-![](./img/Captura-101.JPG)
+![Hacer commit Añadido capítulo 4](./img/Captura-101.JPG)
 
-Mostrar la historia del repositorio incluyendo todas las ramas.
+**Mostrar la historia del repositorio incluyendo todas las ramas.**
 
-![](./img/Captura-102.JPG)
+*Con el comando ``git log --graph --all --oneline`` puedes ver el historial de todas las ramas de forma compacta, mostrando el registro de commits en un formato de una sola línea para cada commit.*
+
+![Mostrar historia del repositorio incluyendo ramas](./img/Captura-102.JPG)
 
 ### Ejercicio 3
 
-Cambiar a la rama bibliografia.
+**Cambiar a la rama bibliografia.**
 
-![](./img/Captura-103.JPG)
+*Comando git checkout NombreRama* para cambiar de rama.
 
-Crear el fichero ``bibliografia.txt`` y añadir la siguiente referencia:
+![Cambiar a la rama bibliografía](./img/Captura-103.JPG)
+
+**Crear el fichero ``bibliografia.txt`` y añadir la siguiente referencia:**
+
+*Creamos el fichero con ``echo -e`` de nuevo.*
 
 ``Chacon, S. and Straub, B. Pro Git. Apress.``
 
-![](./img/Captura-104.JPG)
+![Crear bibliografia.txt y añadir referencia](./img/Captura-104.JPG)
 
-Añadir los cambios a la zona de intercambio temporal.
+**Añadir los cambios a la zona de intercambio temporal.**
 
-![](./img/Captura-105.JPG)
+![Añadir cambios a la zona de intercambio temporal](./img/Captura-105.JPG)
 
-Hacer un commit con el mensaje "Añadida primera referencia bibliográfica."
+**Hacer un commit con el mensaje ``Añadida primera referencia bibliográfica.``**
 
-![](./img/Captura-106.JPG)
+![Hacer commit Añadida primera referencia bibliográfica](./img/Captura-106.JPG)
 
-Mostrar la historia del repositorio incluyendo todas las ramas.
+**Mostrar la historia del repositorio incluyendo todas las ramas.**
 
-![](./img/Captura-107.JPG)
+![Mostrar historial del repositorio incluyendo ramas](./img/Captura-107.JPG)
 
 ### Ejercicio 4
 
-Fusionar la rama bibliografia con la rama main.
+**Fusionar la rama ``bibliografia`` con la rama ``main``.**
 
-![](./img/Captura-108.JPG)
+*Nos movemos a la rama ``main`` y utilizamos un ``git merge`` para fusionar las ramas.*
 
-Mostrar la historia del repositorio incluyendo todas las ramas.
+![Fusionar la rama bibliografía con la rama main](./img/Captura-108.JPG)
 
-![](./img/Captura-109.JPG)
+**Mostrar la historia del repositorio incluyendo todas las ramas.**
 
-Eliminar la rama bibliografia.
+![Mostrar historia del repositorio incluyendo ramas](./img/Captura-109.JPG)
 
-![](./img/Captura-110.JPG)
+**Eliminar la rama bibliografia.**
 
-Mostrar de nuevo la historia del repositorio incluyendo todas las ramas.
+*Comando ``git branch -d` borra de forma local la rama*.
 
-![](./img/Captura-111.JPG)
+![Eliminar la rama bibliografía](./img/Captura-110.JPG)
+
+**Mostrar de nuevo la historia del repositorio incluyendo todas las ramas.**
+
+![Mostrar historia del repositorio después de eliminar la rama](./img/Captura-111.JPG)
 
 ### Ejercicio 5
 
-Crear la rama bibliografia.
+**Crear la rama bibliografia.**
 
-![](./img/Captura-112.JPG)
+![Crea la rama bibliografía](./img/Captura-112.JPG)
 
-Cambia a la rama bibliografia.
+**Cambia a la rama bibliografia.**
 
-![](./img/Captura-113.JPG)
+![Cambiar a la rama bibliografía](./img/Captura-113.JPG)
 
-Cambiar el fichero ``bibliografia.txt`` para que contenga las siguientes referencias:
+**Cambiar el fichero ``bibliografia.txt`` para que contenga las siguientes referencias:**
 
-``Scott Chacon and Ben Straub. Pro Git. Apress.
-Ryan Hodson.Ry's Git Tutorial. Smashwords (2014)``
+``Scott Chacon and Ben Straub. Pro Git. Apress. Ryan Hodson.Ry's Git Tutorial. Smashwords (2014)``
 
-![](./img/Captura-114.JPG)
+![Cambiar bibliografia.txt con nuevas referencias](./img/Captura-114.JPG)
 
-Añadir los cambios a la zona de intercambio temporal y hacer un commit con el mensaje "Añadida nueva referencia bibliográfica".
+**Añadir los cambios a la zona de intercambio temporal y hacer un commit con el mensaje ``Añadida nueva referencia bibliográfica``.**
 
-![](./img/Captura-115.JPG)
+![Añadir cambios a la zona de intercambio temporal y hacer commit](./img/Captura-115.JPG)
 
-Cambiar a la rama main.
+**Cambiar a la rama main.**
 
-![](./img/Captura-116.JPG)
+![Cambiar a la rama main](./img/Captura-116.JPG)
 
-Cambiar el fichero ``bibliografia.txt`` para que contenga las siguientes referencias:
+**Cambiar el fichero ``bibliografia.txt`` para que contenga las siguientes referencias:**
 
-``Chacon, S. and Straub, B. Pro Git Apress.
-Loeliger, J. and McCullough, M. Version control with Git. O´Reilly.``
+``Chacon, S. and Straub, B. Pro Git Apress. Loeliger, J. and McCullough, M. Version control with Git. O´Reilly.``
 
-![](./img/Captura-117.JPG)
+![Cambiar bibliografía.txt con otras referencias](./img/Captura-117.JPG)
 
-Añadir los cambios a la zona de intercambio temporal y hacer un commit con el mensaje "Añadida nueva referencia bibliográfica."
+**Añadir los cambios a la zona de intercambio temporal y hacer un commit con el mensaje ``Añadida nueva referencia bibliográfica.``**
 
-![](./img/Captura-118.JPG)
+![Añadir cambios a la zona de intercambio temporal y hacer commit](./img/Captura-118.JPG)
 
-Fusionar la rama bibliografia con la rama main.
+**Fusionar la rama bibliografia con la rama main.**
 
-![](./img/Captura-119.JPG)
+![Fusionar la rama bibliografía con main](./img/Captura-119.JPG)
 
-Resolver el conflicto dejando el fichero ``bibliografia.txt`` con las referencias:
+**Resolver el conflicto dejando el fichero ``bibliografia.txt`` con las referencias:**
 
-``Chacon, S. and Straub, B. Pro Git. Apress
-Loeliger, J. and McCullough, M. Version control with Git. O´Reilly
-Hodson, R. Ry´s Git Tutorial. Smashwords (2014)``
+*Se resuelve el conflicto combinando ambas líneas y borrando la primera línea del segundo texto.*
 
-![](./img/Captura-120.JPG)
+``Chacon, S. and Straub, B. Pro Git. Apress Loeliger, J. and McCullough, M. Version control with Git. O´Reilly Hodson, R. Ry´s Git Tutorial. Smashwords (2014)``
 
-Añadir los cambios a la zona de intercambio temporal y hacer un commit con el mensaje "Resuelto conflicto de bibliografía"
+![Resolver el conflicto en bibliografia.txt](./img/Captura-120.JPG)
 
-![](./img/Captura-121.JPG)
+**Añadir los cambios a la zona de intercambio temporal y hacer un commit con el mensaje ``Resuelto conflicto de bibliografía``**.
 
-Mostrar la historia del repositorio incluyendo todas las ramas.
+![Añadir cambios y hacer commit](./img/Captura-121.JPG)
 
-![](./img/Captura-122.JPG)
+**Mostrar la historia del repositorio incluyendo todas las ramas.**
+
+![Mostrar historia del repositorio incluyendo ramas](./img/Captura-122.JPG)
 
 ## Ejercicios de repositorios remotos
 
 ### Ejercicio 1
 
-Crear un nuevo repositorio público en GitHub con el nombre ``libro-git``.
+**Crear un nuevo repositorio público en GitHub con el nombre ``libro-git``**.
 
-![](./img/Captura-123.JPG)
+![Crear un nuevo repositorio de GitHub](./img/Captura-123.JPG)
 
-Añadirlo al repositorio local del libro.
+**Añadirlo al repositorio local del libro**.
 
-![](./img/Captura-124.JPG)
+*Con el comando ``git remote add origin url`` puedes añadir un repositorio remoto a tu repositorio local, permitiendo así sincronizar los cambios entre ambos*.
 
-Mostrar todos los repositorios remotos configurados.
+![Añadir repositorio remoto al repositorio local](./img/Captura-124.JPG)
 
-![](./img/Captura-125.JPG)
+**Mostrar todos los repositorios remotos configurados**.
+
+*Comando git remote -v*.
+
+![Mostrar repositorios remotos configurados](./img/Captura-125.JPG)
 
 ### Ejercicio 2
 
-Añadir los cambios del repositorio local al repositorio remoto de GitHub.
+**Añadir los cambios del repositorio local al repositorio remoto de GitHub**.
 
-![](./img/Captura-126.JPG)
+![Añadir cambios al repositorio remoto](./img/Captura-126.JPG)
 
-Acceder a GitHub y comprobar que se han subido los cambios mostrando el historial de versiones.
+**Acceder a GitHub y comprobar que se han subido los cambios mostrando el historial de versiones**.
 
-![](./img/Captura-127.JPG)
+![Comprobar cambios en GitHub](./img/Captura-127.JPG)
 
 ### Ejercicio 3
 
-Colaborar en el repositorio remoto ``libro-git`` de otro usuario.
+**Colaborar en el repositorio remoto ``libro-git`` de otro usuario**.
 
-![](./img/Captura-128.JPG)
+![Colaborar con el repositorio remoto de otro usuario](./)
 
-Clonar su repositorio ``libro-git``.
-
-![](./img/)
-
-Añadir el fichero ``autores.txt`` que contenga el nombre de usuario y su correo electrónico.
+**Clonar su repositorio ``libro-git``.**
 
 ![](./img/)
 
-Añadir los cambios a la zona de intercambio temporal.
+**Añadir el fichero ``autores.txt`` que contenga el nombre de usuario y su correo electrónico.**
 
 ![](./img/)
 
-Hacer un commit con el mensaje "Añadido autor."
+**Añadir los cambios a la zona de intercambio temporal.**
 
 ![](./img/)
 
-Subir los cambios al repositorio remoto.
+**Hacer un commit con el mensaje ``Añadido autor.``**
+
+![](./img/)
+
+**Subir los cambios al repositorio remoto.**
 
 ![](./img/)
 
 ### Ejercicio 4
 
-Hacer una bifurcación del repositorio remoto ``asalber/libro-git`` en GitHub.
+**Hacer una bifurcación del repositorio remoto ``asalber/libro-git`` en GitHub.**
 
 ![](./img/)
 
-Clonar el repositorio creado en la cuenta de GitHub del usuario.
+**Clonar el repositorio creado en la cuenta de GitHub del usuario.**
 
 ![](./img/)
 
-Crear una nueva rama autoria y activarla.
+**Crear una nueva rama autoria y activarla.**
 
 ![](./img/)
 
-Añadir el nombre de usuario y su correo al fichero ``autores.txt``.
+**Añadir el nombre de usuario y su correo al fichero ``autores.txt``.**
 
 ![](./img/)
 
-Añadir los cambios a la zona de intercambio temporal.
+**Añadir los cambios a la zona de intercambio temporal.**
 
 ![](./img/)
 
-Hacer un commit con el mensaje "Añadido nuevo autor."
+**Hacer un commit con el mensaje ``Añadido nuevo autor.``**
 
 ![](./img/)
 
-Subir los cambios de la rama autoria al repositorio remoto en GitHub.
+**Subir los cambios de la rama autoria al repositorio remoto en GitHub.**
 
 ![](./img/)
 
-Hacer un Pull Request de los cambios en la rama autoria.
+**Hacer un Pull Request de los cambios en la rama autoria.**
 
 ![](./img/)
