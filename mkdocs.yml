@@ -6,16 +6,17 @@ theme:
 nav:
   - Home: index.md
   - About: about.md
-  - Actividad 2.1 - Instalación y configuración servidor Nginx: ./practica2-1/index.md
-  - Actividad 2.2 - Autenticación en Nginx: ./practica2-2/index.md
-  - Actividad 2.3 - Proxy inverso con Nginx: ./practica2-3/index.md
-  - Actividad 2.4 - Balanceo de carga con proxy inverso en Nginx: ./practica2-4/index.md
-  - Actividad 2.5 - Proxy inverso y balanceo de carga con SSL en NGINX: ./practica2-5/index.md
-  - Práctica 2.6 (Ampliación) - Configuración de un servidor Nginx con Hosts Virtuales y directorios de usuario: ./practica2-6/index.md
-  - Actividad 3.1 - Instalación de Tomcat: ./practica3-1/index.md
-  - Actividad 3.2 - Despiegue de Aplicaciones con Node Express y Netify: ./practica3-2/index.md
-  - Práctica 3.3 - Despliegue de una aplicación Flask (Python): ./practica3-3/index.md
-  - Práctica 4.1 - Configuración de un servidor DNS: ./practica4-1/index.md
+  - Actividad 2.1 - Instalación y configuración servidor Nginx: ./tema-2/practica2-1/index.md
+  - Actividad 2.2 - Autenticación en Nginx: ./tema-2/practica2-2/index.md
+  - Actividad 2.3 - Proxy inverso con Nginx: ./tema-2/practica2-3/index.md
+  - Actividad 2.4 - Balanceo de carga con proxy inverso en Nginx: ./tema-2/practica2-4/index.md
+  - Actividad 2.5 - Proxy inverso y balanceo de carga con SSL en NGINX: ./tema-2/practica2-5/index.md
+  - Práctica 2.6 (Ampliación) - Configuración de un servidor Nginx con Hosts Virtuales y directorios de usuario: ./tema-2/practica2-6/index.md
+  - Actividad 3.1 - Instalación de Tomcat: ./tema-3/practica3-1/index.md
+  - Actividad 3.2 - Despiegue de Aplicaciones con Node Express y Netify: ./tema-3/practica3-2/index.md
+  - Práctica 3.3 - Despliegue de una aplicación Flask (Python): ./tema-3/practica3-3/index.md
+  - Práctica 4.1 - Configuración de un servidor DNS: ./tema-4/practica4-1/index.md
+  - Práctica 5.1 - Ejercicios Git y GitHub: ./tema-5/practica5-1/index.md
   
 extra_css:
   - stylesheets/extra.css
