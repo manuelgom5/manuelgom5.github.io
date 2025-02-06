@@ -796,58 +796,76 @@
 
 **Colaborar en el repositorio remoto ``libro-git`` de otro usuario**.
 
-![Colaborar con el repositorio remoto de otro usuario](./)
+*Voy a colaborar con el repositorio ``libro-git`` de ``arammes``*.
+
+![Colaborar con el repositorio remoto de otro usuario](./img/Captura-128.JPG)
 
 **Clonar su repositorio ``libro-git``.**
 
-![](./img/)
+*Antes de hacerlo, asegurate de que tienes permisos de colaboración para poder realizar push. Luego, agrega el repositorio remtoo a tu proyecto Git local con el comando ``git remote add origin URL``*.
+
+![Añadir remote](./img/Captura-129.JPG)
+
+![Clonar repositorio](./img/Captura-130.JPG)
 
 **Añadir el fichero ``autores.txt`` que contenga el nombre de usuario y su correo electrónico.**
 
-![](./img/)
+![Crear fichero](./img/Captura-131.JPG)
 
 **Añadir los cambios a la zona de intercambio temporal.**
 
-![](./img/)
+![Añadir cambios](./img/Captura-132.JPG)
 
 **Hacer un commit con el mensaje ``Añadido autor.``**
 
-![](./img/)
+![Hacer commit](./img/Captura-133.JPG)
 
 **Subir los cambios al repositorio remoto.**
 
-![](./img/)
+![Subir cambios](./img/Captura-134.JPG)
 
 ### Ejercicio 4
 
 **Hacer una bifurcación del repositorio remoto ``asalber/libro-git`` en GitHub.**
 
-![](./img/)
+*Accede al repositorio y haz clic en el botón ``Fork``. Esto creará una copia del repositorio en tu cuenta de GitHub, manteniendo todos sus datos.*
+
+![Hacer bifurcación](./img/Captura-135.JPG)
 
 **Clonar el repositorio creado en la cuenta de GitHub del usuario.**
 
-![](./img/)
+![Clonar repositorio](./img/Captura-136.JPG)
 
 **Crear una nueva rama autoria y activarla.**
 
-![](./img/)
+![Crear nueva rama](./img/Captura-137.JPG)
 
 **Añadir el nombre de usuario y su correo al fichero ``autores.txt``.**
 
-![](./img/)
+![Modificar archivo autores.txt](./img/Captura-138.JPG)
 
 **Añadir los cambios a la zona de intercambio temporal.**
 
-![](./img/)
+![Añadir cambios](./img/Captura-139.JPG)
 
 **Hacer un commit con el mensaje ``Añadido nuevo autor.``**
 
-![](./img/)
+![Hacer commit](./img/Captura-140.JPG)
 
 **Subir los cambios de la rama autoria al repositorio remoto en GitHub.**
 
-![](./img/)
+![Subir cambios a rama autoria](./img/Captura-141.JPG)
 
 **Hacer un Pull Request de los cambios en la rama autoria.**
 
-![](./img/)
+*Accede al apartado ``Pull Request``, los Pull Request se utilizan para proponer cambios en un repositorio y solicitar que sean revisados antes de ser fusionados (merge) en la rama principal o otra rama destino*.
+
+![Apartado Pull request](./img/Captura-142.JPG)
+
+*Compara la rama ``main`` con los cambios sucedidos en la rama ``autoría`` y haz clic en ``Create Pull Request``*.
+
+![Crear Pull Request](./img/Captura-143.JPG)
+
+*Añade un título al ``Pull Request``, opcionalmente también puedes añadirle una descripción y tags, una vez añadido espera a que se publique la solicitud de merge.*
+
+![Solicitud merge publicada](./img/Captura-144.JPG)
