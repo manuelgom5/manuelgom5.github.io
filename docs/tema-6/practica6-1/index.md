@@ -28,7 +28,7 @@ Antes de seguir adelante, se deberá tener instalado Docker en el sistema. Para 
 
 ### Configuración dockerfile
 
-Una vez dentro del repositorio clonado, podemos navegar hasta su directorio con ``cd`` y listar su contenido con ``ls``. Entre los archivos, encontraremos el **Dockerfile**.
+Cuando se clone el repositorio, ya podremos navegar hasta su directorio con ``cd`` y listar su contenido con ``ls``. Entre los archivos, encontraremos el **Dockerfile**.
 
 Si mostramos su contenido con ``cat``, veremos que está incompleto y necesita modificaciones para que funcione correctamente.
 
@@ -86,6 +86,8 @@ Es posible que no lo tengas instalado, para comprobarlo introduce el comando ``d
 **Docker Compose** utiliza un archivo de definición YAML, que es un formato de serialización de datos para la configuración de aplicaciones.
 
 ![Configuración fichero docker-compose](./img/Captura-9.JPG)
+
+Ya que el puerto 3000 está ocupado y lo estamos usando de nuevo en el archivo **docker-compose**, para el servicio **adressbook** asegurate de parar el contenedor anterior **librodirecciones** para evitar problemas, comando ``sudo docker stop librodirecciones``.
 
 Para levantar nuestra aplicación basada en contenedores tendríamos que utilizar el comando ``docker-compose run adressbook npm run migrate``, el servicio **adressbook** es una base de datos definida en el archivo **docker-compose.yml** y el comando ``npm run migrate`` se usa para ejecutar migraciones de base de datos en una aplicación Node.js.
 
