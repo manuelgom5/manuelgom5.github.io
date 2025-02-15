@@ -383,6 +383,8 @@ Verificamos el estado de los contenedores con ``docker ps -a``.
 
 ### 6.  Verificación de la conexión a la base de datos
 
+INFORMACIÓN IMPORTANTE: Aunque en muchas de mis capturas de pantalla se muestra que estoy utilizando PHP FPM versión 7.0, al final tuve que cambiar a la versión 8.1 debido a incompatibilidades con la base de datos. Si bien la versión 7.0 debería funcionar sin problemas, en caso de que encuentres algún error, te sugiero que pruebes con una versión más reciente, como la 8.1.
+
 Si accedes a **HTTP://IP_SERVIDOR**, la página deberá mostrar el mensaje "No hay tablas en la base de datos ``mydb``". Esto puede causar confusión, ya que en realidad existen tablas en la base de datos. Sin embargo, estas no son visibles para el usuario actual, ya que está utilizando un usuario con permisos limitados.
 
 ![Acceso inicial a la página web](./img/Captura-22.JPG)
