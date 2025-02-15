@@ -18,6 +18,7 @@ nav:
   - Práctica 4.1 - Configuración de un servidor DNS: ./tema-4/practica4-1/index.md
   - Práctica 5.1 - Ejercicios Git y GitHub: ./tema-5/practica5-1/index.md
   - Práctica 6.1 - Dockerización del despliegue de una aplicación con Node.js: ./tema-6/practica6-1/index.md
+  - Práctica 6.2 - Despliegue de una aplicación PHP con Nginx y MySQL usando Docker y docker-compose: ./tema-6/practica6-2/index.md
   
 extra_css:
   - stylesheets/extra.css
