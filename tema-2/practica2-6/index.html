@@ -1,0 +1,875 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://manuelgom5.github.io/mi-proyecto/tema-2/practica2-6/">
+      
+      
+        <link rel="prev" href="../practica2-5/">
+      
+      
+        <link rel="next" href="../../tema-3/practica3-1/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+    
+    
+      
+        <title>Práctica 2.6 (Ampliación) - Configuración de un servidor Nginx con Hosts Virtuales y directorios de usuario - Mkdocs Manuel Gómez</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practica-41-configuracion-de-un-servidor-nginx-con-host-virtuales-y-directorios-de-usuario" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mkdocs Manuel Gómez" class="md-header__button md-logo" aria-label="Mkdocs Manuel Gómez" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mkdocs Manuel Gómez
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Práctica 2.6 (Ampliación) - Configuración de un servidor Nginx con Hosts Virtuales y directorios de usuario
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mkdocs Manuel Gómez" class="md-nav__button md-logo" aria-label="Mkdocs Manuel Gómez" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Mkdocs Manuel Gómez
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.1 - Instalación y configuración servidor Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.2 - Autenticación en Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.3 - Proxy inverso con Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.4 - Balanceo de carga con proxy inverso en Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.5 - Proxy inverso y balanceo de carga con SSL en NGINX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Práctica 2.6 (Ampliación) - Configuración de un servidor Nginx con Hosts Virtuales y directorios de usuario
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.6 (Ampliación) - Configuración de un servidor Nginx con Hosts Virtuales y directorios de usuario
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conexion-al-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conexión al servidor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usuarios-y-carpetas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usuarios y carpetas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usuarios y carpetas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-usuarios-carpetas-y-pagina-web-estatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de usuarios, carpetas y página web estática
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeticion-de-los-mismos-pasos-para-el-segundo-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repetición de los mismos pasos para el segundo usuario
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-certificados-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración de certificados SSL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archivos-de-configuracion-de-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Archivos de Configuración de Nginx
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-de-enlaces-simbolicos-y-reinicio-del-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de Enlaces Simbólicos y Reinicio del Servidor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resultados
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-3/practica3-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 3.1 - Instalación de Tomcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-3/practica3-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 3.2 - Despiegue de Aplicaciones con Node Express y Netify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-3/practica3-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 3.3 - Despliegue de una aplicación Flask (Python)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-4/practica4-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 4.1 - Configuración de un servidor DNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-5/practica5-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 5.1 - Ejercicios Git y GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-6/practica6-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.1 - Dockerización del despliegue de una aplicación con Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-6/practica6-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.2 - Despliegue de una aplicación PHP con Nginx y MySQL usando Docker y docker-compose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-6/practica6-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.3 - Servidor web con usuarios autenticados mediante servicio de directorio (LDAP)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conexion-al-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conexión al servidor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usuarios-y-carpetas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usuarios y carpetas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usuarios y carpetas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-usuarios-carpetas-y-pagina-web-estatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de usuarios, carpetas y página web estática
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeticion-de-los-mismos-pasos-para-el-segundo-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repetición de los mismos pasos para el segundo usuario
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-certificados-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración de certificados SSL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archivos-de-configuracion-de-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Archivos de Configuración de Nginx
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-de-enlaces-simbolicos-y-reinicio-del-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de Enlaces Simbólicos y Reinicio del Servidor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resultados
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><strong>Autor: Manuel Gómez Ruiz</strong></p>
+<p><strong>Asignatura: Despliegue de Aplicaciones Web</strong></p>
+<p><strong>Fecha: 12/12/2024</strong></p>
+<p><strong>Curso: 2º de Desarrollo de Aplicaciones Web</strong></p>
+<h1 id="practica-41-configuracion-de-un-servidor-nginx-con-host-virtuales-y-directorios-de-usuario">Práctica 4.1: Configuración de un servidor Nginx con Host Virtuales y directorios de usuario</h1>
+<p>El objetivo de esta práctica está en la configuración de un servidor Nginx que utilice host virtuales para alojar múltiples sitios web en un solo servidor y que cada host virtual apunte al directorio public_hml de distintos usuarios del sistema operativo Debian. De esta manera, cada usuario podrá gestionar su propio sitio web desde su carpeta personal.</p>
+<p>Lo primero que debemos hacer es instalar el servidor <strong>Nginx</strong> y comprobar que su servicio está funcionando correctamente.</p>
+<p><img alt="Captura de estado Nginx" src="img/Captura-1.JPG" /></p>
+<p>A continuación, permitimos el tráfico en los puertos 80 (HTTP) y 22 (SSH) para permitir el acceso a las páginas web.</p>
+<p><img alt="Captura de apertura de puertos" src="img/Captura-2.JPG" /></p>
+<h2 id="conexion-al-servidor">Conexión al servidor</h2>
+<p>Para conectarnos por SSH desde nuestra máquina anfitriona, debemos de instalar el paquete <strong>openssh-server</strong> en nuestro servidor virtual Debian.</p>
+<p><img alt="Instalación openssh" src="img/Captura-3.JPG" /></p>
+<p>Una vez instalado, abrimos la terminal y nos conectamos a ella, mediante el comando <strong>ssh nombre-usuario@IP</strong>.</p>
+<p><img alt="Nos conectamos por SSH" src="img/Captura-4.JPG" /></p>
+<h2 id="usuarios-y-carpetas">Usuarios y carpetas</h2>
+<h3 id="creacion-de-usuarios-carpetas-y-pagina-web-estatica">Creación de usuarios, carpetas y página web estática</h3>
+<p>Añadimos los dos usuarios y le introducimos su nueva contraseña segura, comandos <strong>sudo useradd -m -s /bin/bash nombre-usuario</strong> y <strong>sudo passwd nombre-usuario</strong>, la opción -m crea un directorio home para el nuevo usuario, mientras que -s crea una shell de inicio.</p>
+<p><img alt="Crear usuarios y sus contraseñas" src="img/Captura-5.JPG" /></p>
+<p>Accedemos con el primer usuario, creamos su carpeta y le asignamos sus permisos correspondientes sobre esa carpeta, el último comando es para validar los permisos sobre la carpeta.</p>
+<p><img alt="Creación de carpeta y permisos" src="img/Captura-6.JPG" /></p>
+<p>Creamos una página web básica en formato HTML dentro de la carpeta recién creada. Esta página se utilizará como sitio web estático del usuario.</p>
+<p><img alt="Creación index.html" src="img/Captura-7.JPG" /></p>
+<h3 id="repeticion-de-los-mismos-pasos-para-el-segundo-usuario">Repetición de los mismos pasos para el segundo usuario</h3>
+<p>Repetimos el proceso de creación de carpeta, asignación de permisos y creación de la página web estática para el segundo usuario.</p>
+<p><img alt="Creación de carpeta y permisos" src="img/Captura-8.JPG" /></p>
+<p><img alt="Creación index.html" src="img/Captura-9.JPG" /></p>
+<p>Comprobamos que nuestra página web se visualiza correctamente con nuestro archivo de configuración.</p>
+<p><img alt="Visualización archivo de configuración" src="img/Captura-10.JPG" /></p>
+<p>Resultado.</p>
+<p><img alt="Visualización página web" src="img/Captura-11.JPG" /></p>
+<h2 id="configuracion-de-certificados-ssl">Configuración de certificados SSL</h2>
+<p>Para mejorar la seguridad de las páginas web de los usuarios, creamos certificados SSL para ambos sitios web.</p>
+<p><img alt="Certificado SSL primer usuario" src="img/Captura-12.JPG" /></p>
+<p><img alt="Certificado SSL segundo usuario" src="img/Captura-13.JPG" /></p>
+<h2 id="archivos-de-configuracion-de-nginx">Archivos de Configuración de Nginx</h2>
+<p>Configuramos los archivos correspondientes para que Nginx sirva correctamente los sitios web de los usuarios. A continuación, mostramos las configuraciones realizadas para cada usuario:</p>
+<p><img alt="Archivo de config del primer usuario" src="img/Captura-14.JPG" /></p>
+<p><img alt="Archivo de config del segundo usuario" src="img/Captura-15.JPG" /></p>
+<h2 id="creacion-de-enlaces-simbolicos-y-reinicio-del-servidor">Creación de Enlaces Simbólicos y Reinicio del Servidor</h2>
+<p>Creamos los enlaces simbólicos para que Nginx apunte a los directorios de los usuarios y sus respectivas páginas web. Después de crear los enlaces, comprobamos la sintaxis de la configuración y reiniciamos el servidor para aplicar los cambios.</p>
+<p><img alt="Enlaces simbólicos" src="img/Captura-16.JPG" /></p>
+<p>También permitimos el tráfico en el puerto 443, que es utilizado para HTTPS.</p>
+<p><img alt="Apertura del puerto 443" src="img/Captura-17.JPG" /></p>
+<h2 id="resultados">Resultados</h2>
+<p>Una vez completada la configuración, verificamos el funcionamiento de las páginas web de ambos usuarios:</p>
+<p>Resultado con el usuario Antonio.</p>
+<p><img alt="Visualización entrada a página" src="img/Captura-18.JPG" /></p>
+<p><img alt="Resultado de la página web" src="img/Captura-19.JPG" /></p>
+<p><img alt="Certificado" src="img/Captura-20.JPG" /></p>
+<p>Resultado con el usuario Sergio.</p>
+<p><img alt="Visualización entrada a página" src="img/Captura-21.JPG" /></p>
+<p><img alt="Resultado de la página web" src="img/Captura-22.JPG" /></p>
+<p><img alt="Certificado" src="img/Captura-23.JPG" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

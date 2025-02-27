@@ -1,0 +1,2129 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://manuelgom5.github.io/mi-proyecto/tema-5/practica5-1/">
+      
+      
+        <link rel="prev" href="../../tema-4/practica4-1/">
+      
+      
+        <link rel="next" href="../../tema-6/practica6-1/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+    
+    
+      
+        <title>Práctica 5.1 - Ejercicios Git y GitHub - Mkdocs Manuel Gómez</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practica-51-ejercicios-git-y-github" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mkdocs Manuel Gómez" class="md-header__button md-logo" aria-label="Mkdocs Manuel Gómez" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mkdocs Manuel Gómez
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Práctica 5.1 - Ejercicios Git y GitHub
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mkdocs Manuel Gómez" class="md-nav__button md-logo" aria-label="Mkdocs Manuel Gómez" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Mkdocs Manuel Gómez
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-2/practica2-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.1 - Instalación y configuración servidor Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-2/practica2-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.2 - Autenticación en Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-2/practica2-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.3 - Proxy inverso con Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-2/practica2-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.4 - Balanceo de carga con proxy inverso en Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-2/practica2-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.5 - Proxy inverso y balanceo de carga con SSL en NGINX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-2/practica2-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.6 (Ampliación) - Configuración de un servidor Nginx con Hosts Virtuales y directorios de usuario
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-3/practica3-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 3.1 - Instalación de Tomcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-3/practica3-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 3.2 - Despiegue de Aplicaciones con Node Express y Netify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-3/practica3-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 3.3 - Despliegue de una aplicación Flask (Python)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-4/practica4-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 4.1 - Configuración de un servidor DNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Práctica 5.1 - Ejercicios Git y GitHub
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 5.1 - Ejercicios Git y GitHub
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#practica-51-ejercicios-git-y-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Práctica 5.1: Ejercicios Git y GitHub
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Práctica 5.1: Ejercicios Git y GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repositorio-deaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repositorio DEAW
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readme" class="md-nav__link">
+    <span class="md-ellipsis">
+      README
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commit inicial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Push inicial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignorar-archivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ignorar archivos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anadir-fichero1txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Añadir fichero1.txt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-el-tag-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear el tag v0.1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subir-el-tag-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subir el tag v0.1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuenta-de-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuenta de GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso-social-de-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso social de GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-una-tabla" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear una tabla
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colaboradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colaboradores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-una-rama-v02" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear una rama v0.2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anadir-fichero-2txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Añadir fichero 2.txt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-rama-remota-v02" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear rama remota v0.2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-directo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge directo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-con-conflicto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge con conflicto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listado-de-ramas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listado de ramas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arreglas-conflictos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arreglas conflictos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#borrar-rama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Borrar rama
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listado-de-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listado de cambios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referencias
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practica-52-ejercicios-git-y-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Práctica 5.2: Ejercicios Git y GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enunciados-ejercicios-de-creacion-y-actualizacion-de-repositorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enunciados: Ejercicios de creación y actualización de repositorios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enunciados: Ejercicios de creación y actualización de repositorios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 5
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 6
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-de-manejo-del-historial-de-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicios de manejo del historial de cambios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicios de manejo del historial de cambios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-de-deshacer-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicios de deshacer cambios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicios de deshacer cambios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-de-gestion-de-ramas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicios de gestión de ramas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicios de gestión de ramas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 5
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-de-repositorios-remotos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicios de repositorios remotos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicios de repositorios remotos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-6/practica6-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.1 - Dockerización del despliegue de una aplicación con Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-6/practica6-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.2 - Despliegue de una aplicación PHP con Nginx y MySQL usando Docker y docker-compose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-6/practica6-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.3 - Servidor web con usuarios autenticados mediante servicio de directorio (LDAP)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#practica-51-ejercicios-git-y-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Práctica 5.1: Ejercicios Git y GitHub
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Práctica 5.1: Ejercicios Git y GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repositorio-deaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repositorio DEAW
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readme" class="md-nav__link">
+    <span class="md-ellipsis">
+      README
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commit inicial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Push inicial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignorar-archivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ignorar archivos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anadir-fichero1txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Añadir fichero1.txt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-el-tag-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear el tag v0.1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subir-el-tag-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subir el tag v0.1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuenta-de-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuenta de GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso-social-de-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso social de GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-una-tabla" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear una tabla
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colaboradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colaboradores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-una-rama-v02" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear una rama v0.2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anadir-fichero-2txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Añadir fichero 2.txt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-rama-remota-v02" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear rama remota v0.2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-directo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge directo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-con-conflicto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge con conflicto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listado-de-ramas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listado de ramas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arreglas-conflictos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arreglas conflictos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#borrar-rama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Borrar rama
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listado-de-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listado de cambios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referencias
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practica-52-ejercicios-git-y-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Práctica 5.2: Ejercicios Git y GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enunciados-ejercicios-de-creacion-y-actualizacion-de-repositorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enunciados: Ejercicios de creación y actualización de repositorios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enunciados: Ejercicios de creación y actualización de repositorios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 5
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 6
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-de-manejo-del-historial-de-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicios de manejo del historial de cambios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicios de manejo del historial de cambios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-de-deshacer-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicios de deshacer cambios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicios de deshacer cambios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-de-gestion-de-ramas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicios de gestión de ramas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicios de gestión de ramas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 5
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-de-repositorios-remotos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicios de repositorios remotos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicios de repositorios remotos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Práctica 5.1 - Ejercicios Git y GitHub</h1>
+
+<p><strong>Autor: Manuel Gómez Ruiz</strong></p>
+<p><strong>Asignatura: Despliegue de Aplicaciones Web</strong></p>
+<p><strong>Fecha: 03/02/2025</strong></p>
+<h2 id="practica-51-ejercicios-git-y-github">Práctica 5.1: Ejercicios Git y GitHub</h2>
+<h3 id="repositorio-deaw">Repositorio DEAW</h3>
+<p><strong>1. Crear un repositorio en vuestro GitHub llamado DEAW.</strong></p>
+<p><em>Dirigete a tu cuenta de GitHub, haz clic en el botón <code>New Repository</code>, luego añade un nombre para el repositorio, el propietario, una breve descripción de su contenido y elige si será público o privado.</em></p>
+<p><img alt="Creación del repositorio en GitHub" src="img/Captura-1.JPG" /></p>
+<p><strong>2. Clonar vuestro repositorio en local.</strong></p>
+<p><em>Para clonar un repositorio utiliza el comando <code>git clone</code> junto al enlace del repositorio terminado en .git</em>.</p>
+<pre><code>
+    Manuel@DESKTOP-3AN5HH7 MINGW64 ~/Documents/Curso24-25/DAW24-25
+    $ git clone https://github.com/manuelgom5/DEAW.git
+</code></pre>
+<p><img alt="Clonación repositorio" src="img/Captura-2.JPG" /></p>
+<h3 id="readme">README</h3>
+<p><strong>1. Crear (si no lo habéis creado ya) en vuestro repositorio local un documento <code>README.md</code>.</strong></p>
+<pre><code>    Nota
+
+    Escribir un pequeño texto en este README a propósito del repositorio y el módulo para el que se utilizará.
+</code></pre>
+<p><em>Puedes utilizar el comando <code>echo -e</code> para introducir el texto del archivo a la misma vez que lo crea -&gt; <code>echo -e "Capítulo 1: Introducción a Git\nCapítulo 2: Flujo de trabajo básico\n" &gt; README.md</code></em>.</p>
+<p><img alt="Contenido del README.md" src="img/Captura-3.JPG" /></p>
+<h3 id="commit-inicial">Commit inicial</h3>
+<p><strong>1. Realizar un commit inicial con el comentario <code>Comenzamos con los ejercicios de git</code>.</strong></p>
+<p><em>Como el archivo README.md aún no ha sido agregado al área de staging, debes utilizar <code>git add</code> para incluirlo en el seguimiento antes de realizar el commit. Si el archivo ya estuviera en </em><em>seguimiento</em><em> por Git, podría utilizar directamente <code>git commit -am 'Mensaje'</code></em>.</p>
+<p><img alt="Commit inicial" src="img/Captura-4.JPG" /></p>
+<h3 id="push-inicial">Push inicial</h3>
+<p><strong>1. Subir los cambios al repositorio remoto.</strong></p>
+<p><em>Usa el comando <code>git push</code> para subir los cambios a la rama principal. Si es la primera vez que subes cambios a la rama, utiliza el flag <code>-u</code> para establecer una relación de seguimiento entre una rama local y su correspondiente rama remota, para que posteriormente no sea necesario utilizar en la rama comandos como <code>git pull</code></em>.</p>
+<p><img alt="Cambios subidos en main" src="img/Captura-5.JPG" /></p>
+<h3 id="ignorar-archivos">Ignorar archivos</h3>
+<p><strong>1.  Crear en el repositorio local un fichero llamado <code>privado.txt</code>.</strong></p>
+<p><strong>2.  Crear en el repositorio local una carpeta llamada <code>privada</code>.</strong></p>
+<p><strong>3.  Realizar los cambios oportunos para que tanto el archivo como la carpeta sean ignorados por git.</strong></p>
+<p><em>Para crear el archivo, usa <code>touch privado.txt</code>, y para la carpeta <code>mkdir privada</code>, luego crea un archivo llamado <code>.gitignore</code> que incluya la ruta de ambos para que se vean y se puedan usar solo en local.</em></p>
+<p><img alt="Configuración del .gitignore" src="img/Captura-6.JPG" /></p>
+<h3 id="anadir-fichero1txt">Añadir fichero1.txt</h3>
+<p><strong>1. Añadir fichero <code>1.txt</code> al repositorio local.</strong></p>
+<p><em>Para agregar el archivo al repositorio, primero añade el archivo al área de seguimiento con <code>git add</code>, ya que acaba de ser creado, agregale un mensaje con <code>git commit -m</code> y le haces un <code>git push</code> para enviar los cambios al repositorio remoto.</em></p>
+<p><img alt="Contenido del archivo 1.txt y su subida junto al .gitignore" src="img/Captura-7.JPG" /></p>
+<p><em>Comprobación de que está subido en GitHub.</em></p>
+<p><img alt="Comprobación en Github" src="img/Captura-8.JPG" /></p>
+<h3 id="crear-el-tag-v01">Crear el tag v0.1</h3>
+<p><strong>1.  Crear un tag <code>v0.1</code></strong>.</p>
+<p><em>Utiliza el comando git tag NombreTag</em>.</p>
+<p><img alt="Comando para crear el tag" src="img/Captura-9.JPG" /></p>
+<h3 id="subir-el-tag-v01">Subir el tag v0.1</h3>
+<p><strong>1.  Subir los cambios al repositorio remoto.</strong></p>
+<p><em>Utiliza el comando <code>git push origin nombreTag</code> para agregarla a Github, aparecerá en el repositorio bajo el nombre de tags.</em></p>
+<p><img alt="Creación del tag" src="img/Captura-10.JPG" /></p>
+<p><img alt="Vista del tag en Github" src="img/Captura-11.JPG" /></p>
+<h3 id="cuenta-de-github">Cuenta de GitHub</h3>
+<p><strong>1.  Poner una foto en vuestro perfil de GitHub.</strong></p>
+<p><em>Dirigete a la sección de <code>Settings</code> y selecciona en editar tu foto.</em></p>
+<p><img alt="Cambiar foto de perfil" src="img/Captura-12.JPG" /></p>
+<p><strong>2.  Poner el doble factor de autentificación en vuestra cuenta de GitHub.</strong></p>
+<p><em>Ve a <code>Settings</code> &gt; <code>Password and Authentication</code>, y configura un método adicional para proteger tu cuenta. Esto asegurará que, al acceder desde tu equipo o cualquier otro dispositivo, necesitarás un segundo factor de verificación, como el acceso a tu móvil, para confirmar tu identidad y realizar acciones sensibles en tu cuenta.</em></p>
+<p><img alt="Password and authentication" src="img/Captura-13.JPG" /></p>
+<h3 id="uso-social-de-github">Uso social de GitHub</h3>
+<p><strong>1.  Preguntar los nombres de usuario de GitHub de 2 de tus compañeros de clase, búscalos y sigueles.</strong></p>
+<p><em>En <code>Your Profile</code> puedes ver a las personas que estás siguiendo y a quienes te siguen. Si haces clic sobre sus nombres, podrás ver más detalles de sus perfiles.</em></p>
+<p><img alt="Seguir compañeros" src="img/Captura-14.JPG" /></p>
+<p><strong>2.  Seguir los repositorios <code>DEAW</code> del resto de tus compañeros.</strong></p>
+<p><em>Para seguir un repositorio, accede a él y haz clic en el botón <code>Watch</code>. En mi caso, he seleccionado recibir notificaciones cada vez que haya cambios, menciones o comentarios en el repositorio de mi compañero.</em></p>
+<p><img alt="Seguir repositorios" src="img/Captura-15.JPG" /></p>
+<p><strong>3.  Añadir una estrella a los repositorios <code>DEAW</code> del resto de tus compañeros.</strong></p>
+<p><em>El botón para añadir estrellas se encuentra junto al botón de seguimiento del repositorio. Los repositorios a los que des una estrella se pueden visualizar en la sección <code>Your profile</code>.</em></p>
+<p><img alt="Añadir estrella" src="img/Captura-16.JPG" /></p>
+<h3 id="crear-una-tabla">Crear una tabla</h3>
+<p><strong>1.  Crear una tabla de este estilo en el fichero <code>README.md</code> con la información de varios de tus compañeros de clase:</strong></p>
+<p><img alt="Tabla ejemplo" src="img/Enunciado.JPG" /></p>
+<p><em>En README puedes crear una tabla utilizando la sintaxis adecuada.</em></p>
+<p><img alt="Tabla en el README" src="img/Captura-17.JPG" /></p>
+<p><em>Como puedes ver, GitHub es capaz de interpretar el formato de la tabla en el archivo README y la muestra en formato tabla.</em></p>
+<p><img alt="Tabla subida" src="img/Captura-18.JPG" /></p>
+<h3 id="colaboradores">Colaboradores</h3>
+<p><strong>1.  Poner a <code>github.com/arammes003</code> como colaborador del repositorio <code>DEAW</code>.</strong></p>
+<p><em>Para hacerlo, accede a los <code>ajustes (Settings) de tu repositorio</code> &gt; <code>Collaborators</code>, y añade su nombre de usuario.</em></p>
+<p><img alt="Añadir colaborador" src="img/Captura-19.JPG" /></p>
+<h3 id="notas">Notas</h3>
+<p><strong>1.  Este ejercicio es continuación del anterior por lo que tendreís que seguir trabajando en el repositorio <code>DEAW</code>.</strong></p>
+<p><strong>2.  También tendreís que ir poniendo los <code>comandos</code> que habéis tenido que utilizar durante todos los ejercicios y las <code>explicaciones y capturas de pantalla</code> que consideréis <code>necesarias</code> en el informe.</strong></p>
+<h3 id="crear-una-rama-v02">Crear una rama v0.2</h3>
+<p><strong>1.  Crear una rama <code>v0.2</code>.</strong></p>
+<p><strong>2.  Posiciona tu carpeta de trabajo en esta rama.</strong></p>
+<p><em>Puedes realizar ambas acciones a la vez utilizando el comando <code>git checkout -b nombreRama</code></em>.</p>
+<p><img alt="Crear y cambiar a la rama v0.2" src="img/Captura-20.JPG" /></p>
+<h3 id="anadir-fichero-2txt">Añadir fichero 2.txt</h3>
+<p><strong>1.  Añadir un fichero <code>2.txt</code> en la rama <code>v0.2</code>.</strong></p>
+<p><em>También puedes crearlo con <code>echo -e</code> como te mostré previamente. Aunque estés en otra rama, el proceso de <code>add</code> y <code>commit</code> sigue siendo el mismo</em>.</p>
+<p><img alt="Añadir archivo 2.txt" src="img/Captura-21.JPG" /></p>
+<h3 id="crear-rama-remota-v02">Crear rama remota v0.2</h3>
+<p><strong>1.  Subir los cambios al repositorio remoto.</strong></p>
+<p><em>Puedes subir la rama y su contenido haciendo uso del comando <code>git push origin NombreRama</code></em>.</p>
+<p><img alt="Subir rama v0.2" src="img/Captura-22.JPG" /></p>
+<p><em>Como puedes ver, ahora existe la rama en GitHub.</em></p>
+<p><img alt="Comprobación de la rama en GitHub" src="img/Captura-23.JPG" /></p>
+<h3 id="merge-directo">Merge directo</h3>
+<p><strong>1.  Posicionarse en la rama <code>main</code></strong>.</p>
+<p><img alt="Posicionamiento en main" src="img/Captura-24.JPG" /></p>
+<p><strong>2.  Hacer un merge de la rama <code>v0.2</code> en la rama <code>main</code></strong></p>
+<p><em>De esta manera, los cambios realizados en tu rama <code>v0.2</code> se integran en la rama principal (<code>main</code>).</em></p>
+<p><img alt="Realizar un merge de la rama v0.2 en la rama main" src="img/Captura-25.JPG" /></p>
+<h3 id="merge-con-conflicto">Merge con conflicto</h3>
+<p><strong>1.  En la rama <code>main</code> poner <code>Hola</code> en el fichero <code>1.txt</code> y hacer commit.</strong></p>
+<p><img alt="Agregando contenido a 1.txt" src="img/Captura-26.JPG" /></p>
+<p><img alt="Haciendo commit de los cambios" src="img/Captura-27.JPG" /></p>
+<p><strong>2.  Posicionarse en la rama <code>v0.2</code> y poner <code>Adios</code> en el fichero <code>"1.txt"</code> y hacer commit.</strong></p>
+<p><em>Sobreescribimos la misma línea con un nuevo contenido y guardamos el archivo.</em></p>
+<p><img alt="Sobreescritura de contenido en la misma línea" src="img/Captura-28.JPG" /></p>
+<p><strong>3.  Posicionarse de nuevo en la rama <code>main</code> y hacer un merge con la rama <code>v0.2</code>.</strong></p>
+<p><em>Como se puede visualizar esto llevará a un conflicto, ya que el archivo tiene contenido distinto en ambos commits.</em></p>
+<p><img alt="Conflicto al hacer el merge de v0.2" src="img/Captura-29.JPG" /></p>
+<h3 id="listado-de-ramas">Listado de ramas</h3>
+<p><strong>1.  Listar las ramas con merge y las ramas sin merge.</strong></p>
+<p><em>Para listar las ramas que ya han sido mergeadas, utiliza <code>git branch --merged</code>. Para listar las ramas que aún no han sido mergeadas, utiliza <code>git branch --no-merged</code></em>.</p>
+<p><img alt="Listado de ramas" src="img/Captura-30.JPG" /></p>
+<h3 id="arreglas-conflictos">Arreglas conflictos</h3>
+<p><strong>1.  Arreglar el conflicto anterior y hacer un commit.</strong></p>
+<p><em>Resolvemos el conflicto eligiendo mantener ambas modificaciones en líneas separadas. Luego, realizamos un commit utilizando <code>git commit -am</code> para agregar el archivo sin conflictos y guardarlo.</em></p>
+<p><img alt="Arreglar conflictos" src="img/Captura-31.JPG" /></p>
+<h3 id="borrar-rama">Borrar rama</h3>
+<p><strong>1.  Crear un tag <code>v0.2</code></strong>.</p>
+<p><em>Utiliza el comando <code>git tag NombreTag</code> para crear el nuevo tag</em>.</p>
+<p><img alt="Creación nuevo tag" src="img/Captura-32.JPG" /></p>
+<p><strong>2.  Borrar la rama <code>v0.2</code></strong>.</p>
+<p><em>Para eliminar una rama, debemos borrarla tanto localmente como de manera remota. Usa <code>git branch -d NombreRama</code> para eliminarla localmente y <code>git push origin --delete NombreRama</code> para borrarla del repositorio remoto.</em></p>
+<p><img alt="Borrar rama localmente" src="img/Captura-33.JPG" /></p>
+<p><img alt="Borrar rama en la nube" src="img/Captura-34.JPG" /></p>
+<h3 id="listado-de-cambios">Listado de cambios</h3>
+<p><strong>1.  Listar los distintos commits con sus ramas y sus tags.</strong></p>
+<p><em>El comando <code>git log --oneline --decorate --graph --all</code> muestra cada commit en una sola línea, con todas sus referencias (nombres ramas, tags, merges)</em></p>
+<p><img alt="Listado de cambios" src="img/Captura-35.JPG" /></p>
+<h3 id="referencias">Referencias</h3>
+<p><a href="https://git-scm.com/book/es/v2">Pro Git book, written by Scott Chacon and Ben Straub and published by Apress</a></p>
+<h2 id="practica-52-ejercicios-git-y-github">Práctica 5.2: Ejercicios Git y GitHub</h2>
+<pre><code>    Nota
+
+    Cuando se habla de **zona de intercambio temporal** o zona **staging**, estamos hablando de un add
+</code></pre>
+<p><img alt="Enunciado" src="img/Enunciado-2.JPG" /></p>
+<pre><code>    Si tenéis dudas para realizar estos ejercicios, podéis consultar la [siguiente web](https://aprendeconalf.es/docencia/git/manual/)
+</code></pre>
+<h2 id="enunciados-ejercicios-de-creacion-y-actualizacion-de-repositorios">Enunciados: Ejercicios de creación y actualización de repositorios</h2>
+<h3 id="ejercicio-1">Ejercicio 1</h3>
+<p><strong>Configurar Git definiendo el nombre del usuario, el correo electrónico y activar el coloreado a la salida.</strong></p>
+<p><em>Para que Git asocie correctamente los commits a nuestra identidad, debemos configurar el nombre de usuario y el correo electrónico con los comandos <code>git config --global user.name</code> y <code>user.email</code>, y para mejorar la legibilidad de los mensajes, podríamos activar el coloreado con <code>git config --global color.ui auto</code></em>.</p>
+<p><img alt="Inicialización y personalización de Git" src="img/Captura-36.JPG" /></p>
+<p><strong>Mostrar la configuración final.</strong></p>
+<p><em>Con el comando <code>git config --global --list</code> podemos comprobar que los datos se han introducido correctamente.</em></p>
+<p><img alt="Verificar configuración final" src="img/Captura-37.JPG" /></p>
+<h3 id="ejercicio-2">Ejercicio 2</h3>
+<p><strong>Crear un repositorio nuevo con el nombre <code>libro</code> y mostrar su contenido.</strong></p>
+<p><em>Usa <code>mkdir NombreRepo</code> para crearlo, luego accede a él con <code>cd</code> e inicializa el repositorio con <code>git init</code>.</em></p>
+<p><img alt="Crear repositorio" src="img/Captura-38.JPG" /></p>
+<p><em>Para mostrar su contenido utiliza el comando <code>ls -la</code></em>.</p>
+<p><img alt="Mostrar contenido" src="img/Captura-39.JPG" /></p>
+<h3 id="ejercicio-3">Ejercicio 3</h3>
+<p><strong>Comprobar el estado del repositorio.</strong></p>
+<p><em>Uso del comando <code>git status</code></em>.</p>
+<p><img alt="Comprobar estado repo" src="img/Captura-40.JPG" /></p>
+<p><strong>Crear un fichero <code>indice.txt</code> con el siguiente contenido:</strong></p>
+<p><code>Capítulo 1: Introducción a Git</code>
+<code>Capítulo 2: Flujo de trabajo básico</code>
+<code>Capítulo 3: Repositorios remotos</code></p>
+<p><em>Crea la rama main y accede a ella con <code>git branch -M main</code>, después crea el fichero y su contenido con <code>echo -e</code> y muestra su contenido con <code>cat</code></em>.</p>
+<p><img alt="Crear nuevo fichero indice.txt" src="img/Captura-41.JPG" /></p>
+<p><strong>Comprobar de nuevo el estado del repositorio.</strong></p>
+<p><img alt="Comprobar de nuevo el estado" src="img/Captura-42.JPG" /></p>
+<p><strong>Añadir el fichero a la zona de intercambio temporal.</strong></p>
+<p><img alt="Añadir fichero a zona de intercambio" src="img/Captura-43.JPG" /></p>
+<p><strong>Volver a comprobar una vez más el estado del repositorio.</strong></p>
+<p><img alt="Verificar estado" src="img/Captura-44.JPG" /></p>
+<h3 id="ejercicio-4">Ejercicio 4</h3>
+<p><strong>Realizar un commit de los últimos cambios con el mensaje <code>"Añadido índice del libro"</code>, y ver el estado del repositorio.</strong></p>
+<p><img alt="Commit con los cambios" src="img/Captura-45.JPG" /></p>
+<h3 id="ejercicio-5">Ejercicio 5</h3>
+<p><strong>Cambiar el fichero <code>indice.txt</code> para que contenga lo siguiente:</strong></p>
+<p><code>Capítulo 1: Introducción a Git</code>
+<code>Capítulo 2: Flujo de trabajo básico</code>
+<code>Capítulo 3: Gestión de ramas</code>
+<code>Capítulo 4: Repositorio de ramas</code></p>
+<p><em>Comando <code>echo -e</code> para crear el fichero a la misma vez que agregas su contenido</em>.</p>
+<p><img alt="Nuevo contenido indice.txt" src="img/Captura-46.JPG" /></p>
+<p><strong>Mostrar los cambios con respecto a la última versión guardada en el repositorio.</strong></p>
+<p><em>Para ello utiliza el comando <code>git diff HEAD</code>, también se puede usar para ver los cambios en los archivos o otras ramas</em>.</p>
+<p><img alt="Mostrar los cambios en el repo" src="img/Captura-47.JPG" /></p>
+<p><strong>Hacer un commit de los cambios con el mensaje <code>"Añadido capítulo 3 sobre gestión de ramas"</code>.</strong></p>
+<p><img alt="Commit con los cambios" src="img/Captura-48.JPG" /></p>
+<h3 id="ejercicio-6">Ejercicio 6</h3>
+<p><strong>Mostrar los cambios de la última versión del repositorio con respecto a la anterior.</strong></p>
+<p><em>Comando <code>git diff HEAD~1</code></em>.</p>
+<p><img alt="Cambios entre la versión nueva y la anterior" src="img/Captura-49.JPG" /></p>
+<p><strong>Cambiar el mensaje del último commit por <code>"Añadido capítulo 3 sobre gestión de ramas al índice"</code>.</strong></p>
+<p><img alt="Nuevo mensaje en el commit" src="img/Captura-50.JPG" /></p>
+<p><strong>Volver a mostrar los últimos cambios del repositorio.</strong></p>
+<p><em>Para ello existen varios comandos, en este caso he usado el comando <code>git show HEAD</code></em>.</p>
+<p><img alt="Mostrar últimos cambios" src="img/Captura-51.JPG" /></p>
+<h2 id="ejercicios-de-manejo-del-historial-de-cambios">Ejercicios de manejo del historial de cambios</h2>
+<h3 id="ejercicio-1_1">Ejercicio 1</h3>
+<p><strong>Mostrar el historial de cambios del repositorio.</strong></p>
+<p><em>Comando <code>git log</code> que incluye información sobre cada commit, como el identificador, autor, fecha y mensaje de commit</em>.</p>
+<p><img alt="Historial de commits" src="img/Captura-52.JPG" /></p>
+<p><strong>Crear la carpeta capitulos y crear dentro de ella el fichero capitulo1.txt con el siguiente texto.</strong></p>
+<p><code>Git es un sistema de control de versiones ideado por Linus Torvalds.</code></p>
+<p><em>Comandos <code>mkdir</code> para crear la carpeta, y <code>echo</code> para crear el fichero con su contenido</em>.</p>
+<p><img alt="Creación de la carpeta y archivo capitulo1.txt con su contenido" src="img/Captura-53.JPG" /></p>
+<p><strong>Añadimos los cambios a la zona de intercambio temporal.</strong></p>
+<p><img alt="Confirmación de que capitulo1.txt ha sido agregado al área de staging" src="img/Captura-54.JPG" /></p>
+<p><strong>Hacer un commit de los cambios con el mensaje "Añadido capítulo 1." Volver a mostrar el historial de cambios del repositorio.</strong></p>
+<p><img alt="Confirmación del commit" src="img/Captura-55.JPG" /></p>
+<p><img alt="Historial de commits" src="img/Captura-56.JPG" /></p>
+<h3 id="ejercicio-2_1">Ejercicio 2</h3>
+<p><strong>Crear el fichero <code>capitulo2.txt</code> en la carpeta capitulos con el siguiente texto.</strong></p>
+<p><code>El flujo de trabajo básico con Git consiste en: 1- Hacer cambios en el repositorio. 2- Añadir los cambios a la zona de intercambio temporal. 3- Hacer un commit de los cambios.</code></p>
+<p><img alt="Creación del archivo capitulo2.txt con el contenido específico" src="img/Captura-57.JPG" /></p>
+<p><strong>Añadir los cambios a la zona de intercambio temporal.</strong></p>
+<p><img alt="Confirmación de que capitulo2.txt ha sido agregado al área de staging" src="img/Captura-58.JPG" /></p>
+<p><strong>Hacer un commit de los cambios con el mensaje "Añadido capítulo 2."</strong></p>
+<p><img alt="Confirmación del commit con el mensaje 'Añadido capítulo 2'" src="img/Captura-59.JPG" /></p>
+<p><strong>Mostrar las diferencias entre la última versión y dos versiones anteriores.</strong></p>
+<p><img alt="Diferencias entre la versión actual y dos versiones anteriores" src="img/Captura-60.JPG" /></p>
+<h3 id="ejercicio-3_1">Ejercicio 3</h3>
+<p><strong>Crear el fichero <code>`capitulo3.txt</code> en la carpeta capitulos con el siguiente texto.</strong></p>
+<p><code>Git permite la creación de ramas lo que permite tener distintas verisones del mismo proyecto y trabajar de manera simultanea en ellas.</code></p>
+<p><img alt="Creación del archivo capitulo3.txt con el contenido especificado" src="img/Captura-61.JPG" /></p>
+<p><strong>Añadir los cambios a la zona de intercambio temporal.</strong></p>
+<p><img alt="Confirmación de que capitulo3.txt ha sido agregado al área de staging" src="img/Captura-62.JPG" /></p>
+<p><strong>Hacer un commit de los cambios con el mensaje "Añadido capítulo 3."</strong></p>
+<p><img alt="Confirmación del commit con el mensaje 'Añadido capítulo 3'" src="img/Captura-63.JPG" /></p>
+<p><strong>Mostrar las diferencias entre la primera y la última versión del repositorio.</strong></p>
+<p><img alt="Diferencia entre la primera y la última versión del repositorio" src="img/Captura-64.JPG" /></p>
+<h3 id="ejercicio-4_1">Ejercicio 4</h3>
+<p><strong>Añadir al final del fichero <code>indice.txt</code> la siguiente línea:</strong></p>
+<p><em>Esto se puede realizar con el comando <code>echo</code> y la doble redirección.</em></p>
+<p><code>Capítulo 5: Conceptos avanzados</code></p>
+<p><img alt="Contenido actualizado del archivo indice.txt con la nueva línea" src="img/Captura-65.JPG" /></p>
+<p><strong>Añadir los cambios a la zona de intercambio temporal.</strong></p>
+<p><img alt="Confirmación de que indice.txt ha sido agregado al área de staging" src="img/Captura-66.JPG" /></p>
+<p><strong>Hacer un commit de los cambios con el mensaje "Añadido capítulo 5 al indice.".</strong></p>
+<p><img alt="Confirmación del commit con el mensaje Añadido capítulo 5 al indice" src="img/Captura-67.JPG" /></p>
+<p><strong>Mostrar quién ha hecho cambios sobre el fichero <code>indice.txt</code>.</strong></p>
+<p><em>Con el comando <code>git annotate</code> alias de <code>git blame</code> podrás ver quién modificó cada línea de un archivo y en qué commit.</em></p>
+<p><img alt="Detalle de quién ha hecho cambios sobre el archivo indice.txt" src="img/Captura-68.JPG" /></p>
+<h2 id="ejercicios-de-deshacer-cambios">Ejercicios de deshacer cambios</h2>
+<h3 id="ejercicio-1_2">Ejercicio 1</h3>
+<p><strong>Eliminar la última línea del fichero <code>indice.txt</code> y guardarlo.</strong></p>
+<p><em>Accedemos al archivo con <code>nano NombreFichero</code> y modificamos el fichero.</em></p>
+<p><img alt="Eliminar la última línea" src="img/Captura-69.JPG" /></p>
+<p><strong>Comprobar el estado del repositorio.</strong></p>
+<p><img alt="Comprobar estado del repositorio" src="img/Captura-70.JPG" /></p>
+<p><strong>Deshacer los cambios realizados en el fichero <code>indice.txt</code> para volver a la versión anterior del fichero.</strong></p>
+<p><em>Con el comando <code>git restore</code> puedes deshacer cambios en tu directorio de trabajo, volviendo a una versión anterior de los archivos, ya sea desde el último commit o desde un commit específico.</em></p>
+<p><img alt="Deshacer cambios" src="img/Captura-71.JPG" /></p>
+<p><strong>Volver a comprobar el estado del repositorio.</strong></p>
+<p><em>Después de restaurar el archivo a una versión anterior que ya había sido commiteada, no se detectan cambios pendientes.</em></p>
+<p><img alt="Volver a comprobar el estado del repositorio" src="img/Captura-72.JPG" /></p>
+<h3 id="ejercicio-2_2">Ejercicio 2</h3>
+<p><strong>Eliminar la última línea del fichero <code>indice.txt</code> y guardarlo.</strong></p>
+<p><img alt="Elimina última línea" src="img/Captura-73.JPG" /></p>
+<p><strong>Añadir los cambios a la zona de intercambio temporal.</strong></p>
+<p><img alt="Añadir a la zona de intercambio temporal" src="img/Captura-74.JPG" /></p>
+<p><strong>Comprobar de nuevo el estado del repositorio.</strong></p>
+<p><img alt="Comprobar estado del repositorio" src="img/Captura-75.JPG" /></p>
+<p><strong>Quitar los cambios de la zona de intercambio temporal, pero mantenerlos en el directorio de trabajo.</strong></p>
+<p><em>Lo podemos lograr gracias al comando <code>git reset</code>, que se utiliza para deshacer cambios en el repositorio, en la área de staging, directorio de trabajo, o incluso en commits anteriores, en este caso solo introduce el nombre del archivo que has añadido al área de staging.</em></p>
+<p><img alt="Quitar cambios de la zona de intercambio temporal" src="img/Captura-76.JPG" /></p>
+<p><strong>Comprobar de nuevo el estado del repositorio.</strong></p>
+<p><img alt="Comprobar estado después de quitar cambios de la zona de intercambio temporal" src="img/Captura-77.JPG" /></p>
+<p><strong>Deshacer los cambios realizados en el fichero <code>indice.txt</code> para volver a la versión anterior del fichero.</strong></p>
+<p><em>Volvemos a como estaba el archivo <code>indice.txt</code> en el commit, usando <code>git restore</code></em>.</p>
+<p><img alt="Deshacer cambios" src="img/Captura-78.JPG" /></p>
+<p><strong>Volver a comprobar el estado del repositorio.</strong></p>
+<p><img alt="Comprobar estado después de deshacer cambios" src="img/Captura-79.JPG" /></p>
+<h3 id="ejercicio-3_2">Ejercicio 3</h3>
+<p><strong>Eliminar la última línea del fichero <code>indice.txt</code> y guardarlo.</strong></p>
+<p><img alt="Eliminar última línea de índice.txt" src="img/Captura-80.JPG" /></p>
+<p><strong>Eliminar el fichero <code>capitulos/capitulo3.txt</code></strong>.</p>
+<p><em>Comando <code>rm</code> para eliminar ficheros</em>.</p>
+<p><img alt="Eliminar capitulos/capitulo3.txt" src="img/Captura-81.JPG" /></p>
+<p><strong>Añadir un fichero nuevo <code>capitulos/capitulo4.txt</code> vacío</strong>.</p>
+<p><em>Con touch puedes crear ficheros sin su contenido</em>.</p>
+<p><img alt="Añadir nuevo fichero vacío" src="img/Captura-82.JPG" /></p>
+<p><strong>Añadir los cambios a la zona de intercambio temporal</strong>.</p>
+<p><img alt="Añadir cambios a la zona de intercambio temporal" src="img/Captura-83.JPG" /></p>
+<p><strong>Comprobar de nuevo el estado del repositorio</strong>.</p>
+<p><img alt="Comprobar estado del repositorio" src="img/Captura-84.JPG" /></p>
+<p><strong>Quitar los cambios de la zona de intercambio temporal, pero mantenerlos en el directorio de trabajo</strong>.</p>
+<p><em>Posible error: mejor utiliza <code>git restore --staged NombreFichero</code></em>.</p>
+<p><img alt="Quitar cambios de la zona de intercambio temporal" src="img/Captura-85.JPG" /></p>
+<p><strong>Comprobar de nuevo el estado del repositorio</strong>.</p>
+<p><img alt="Comprobar estado después de quitar cambios de la zona" src="img/Captura-86.JPG" /></p>
+<p><strong>Deshacer los cambios realizados para volver a la versión del repositorio</strong>.</p>
+<p><em>Comando <code>git clean -f</code>, se usa para eliminar archivos no rastreados en el directorio de trabajo.</em></p>
+<p><img alt="Deshacer cambios realizados" src="img/Captura-87.JPG" /></p>
+<p><strong>Volver a comprobar el estado del repositorio</strong>.</p>
+<p><img alt="Comprobar estado después de deshacer cambios" src="img/Captura-88.JPG" /></p>
+<h3 id="ejercicio-4_2">Ejercicio 4</h3>
+<p><strong>Eliminar la última línea del fichero <code>indice.txt</code> y guardarlo.</strong></p>
+<p><img alt="Elimina última línea de indice.txt" src="img/Captura-89.JPG" /></p>
+<p><strong>Eliminar el fichero <code>capitulos/capitulo3.txt</code>.</strong></p>
+<p><em>Usa <code>rm</code> para borrar el fichero.</em></p>
+<p><img alt="Eliminar capitulos/capitulo3.txt" src="img/Captura-90.JPG" /></p>
+<p><strong>Añadir los cambios a la zona de intercambio temporal y hacer un commit con el mensaje "Borrado accidental."</strong></p>
+<p><img alt="Añadir cambios y hacer commit &quot;Borrado accidental&quot;" src="img/Captura-91.JPG" /></p>
+<p><strong>Comprobar el historial del repositorio.</strong></p>
+<p><img alt="Comprobar historial del repositorio" src="img/Captura-92.JPG" /></p>
+<p><strong>Deshacer el último commit pero mantener los cambios anteriores en el directorio de trabajo y la zona de intercambio temporal.</strong></p>
+<p><em>Comando <code>git reset --soft</code> permite realizar estos cambios tanto en la rama principal como en otras subramas, manteniendo los cambios anteriores en el directorio de trabajo y zona de intercambio</em>.</p>
+<p><img alt="Deshacer el último commit y mantener los cambios" src="img/Captura-93.JPG" /></p>
+<p><strong>Comprobar el historial y el estado del repositorio.</strong></p>
+<p><img alt="Comprobar historial y estado después de deshacer commit" src="img/Captura-94.JPG" /></p>
+<p><strong>Volver a hacer el commit con el mismo mensaje de antes.</strong></p>
+<p><img alt="Hacer commit nuevamente con el mismo mensaje" src="img/Captura-95.JPG" /></p>
+<p><strong>Deshacer el último commit y los cambios anteriores del directorio de trabajo volviendo a la versión anterior del repositorio.</strong></p>
+<p><em>Comando <code>git reset --hard</code> deshace el último commit, eliminando todos los cambios en el directorio de trabajo que no hayan sido guardados.</em></p>
+<p><img alt="Deshacer el último commit y los cambios en el directorio" src="img/Captura-96.JPG" /></p>
+<p><strong>Comprobar de nuevo el historial y el estado del repositorio.</strong></p>
+<p><img alt="Comprobar historial y estado después de deshacer todo" src="img/Captura-97.JPG" /></p>
+<h2 id="ejercicios-de-gestion-de-ramas">Ejercicios de gestión de ramas</h2>
+<h3 id="ejercicio-1_3">Ejercicio 1</h3>
+<p><strong>Crear una nueva rama bibliografia y mostrar las ramas del repositorio.</strong></p>
+<p><em>Comando <code>git branch NombreRama</code> para crearla y <code>git branch</code> para mostrarlas.</em></p>
+<p><img alt="Crea nueva rama bibliografía y mostrar ramas" src="img/Captura-98.JPG" /></p>
+<h3 id="ejercicio-2_3">Ejercicio 2</h3>
+<p><strong>Crear el fichero <code>capitulos/capitulo4.txt</code> y añadir el texto siguiente:</strong></p>
+<p><code>En este capítulo veremos como usar GitHub para alojar repositorios en remoto.</code></p>
+<p><img alt="Crea capitulos/capitulo4.txt y añadir texto" src="img/Captura-99.JPG" /></p>
+<p><strong>Añadir los cambios a la zona de intercambio temporal.</strong></p>
+<p><img alt="Añadir cambios a la zona de intercambio temporal" src="img/Captura-100.JPG" /></p>
+<p><strong>Hacer un commit con el mensaje <code>Añadido capítulo 4.</code></strong></p>
+<p><img alt="Hacer commit Añadido capítulo 4" src="img/Captura-101.JPG" /></p>
+<p><strong>Mostrar la historia del repositorio incluyendo todas las ramas.</strong></p>
+<p><em>Con el comando <code>git log --graph --all --oneline</code> puedes ver el historial de todas las ramas de forma compacta, mostrando el registro de commits en un formato de una sola línea para cada commit.</em></p>
+<p><img alt="Mostrar historia del repositorio incluyendo ramas" src="img/Captura-102.JPG" /></p>
+<h3 id="ejercicio-3_3">Ejercicio 3</h3>
+<p><strong>Cambiar a la rama bibliografia.</strong></p>
+<p><em>Comando git checkout NombreRama</em> para cambiar de rama.</p>
+<p><img alt="Cambiar a la rama bibliografía" src="img/Captura-103.JPG" /></p>
+<p><strong>Crear el fichero <code>bibliografia.txt</code> y añadir la siguiente referencia:</strong></p>
+<p><em>Creamos el fichero con <code>echo -e</code> de nuevo.</em></p>
+<p><code>Chacon, S. and Straub, B. Pro Git. Apress.</code></p>
+<p><img alt="Crear bibliografia.txt y añadir referencia" src="img/Captura-104.JPG" /></p>
+<p><strong>Añadir los cambios a la zona de intercambio temporal.</strong></p>
+<p><img alt="Añadir cambios a la zona de intercambio temporal" src="img/Captura-105.JPG" /></p>
+<p><strong>Hacer un commit con el mensaje <code>Añadida primera referencia bibliográfica.</code></strong></p>
+<p><img alt="Hacer commit Añadida primera referencia bibliográfica" src="img/Captura-106.JPG" /></p>
+<p><strong>Mostrar la historia del repositorio incluyendo todas las ramas.</strong></p>
+<p><img alt="Mostrar historial del repositorio incluyendo ramas" src="img/Captura-107.JPG" /></p>
+<h3 id="ejercicio-4_3">Ejercicio 4</h3>
+<p><strong>Fusionar la rama <code>bibliografia</code> con la rama <code>main</code>.</strong></p>
+<p><em>Nos movemos a la rama <code>main</code> y utilizamos un <code>git merge</code> para fusionar las ramas.</em></p>
+<p><img alt="Fusionar la rama bibliografía con la rama main" src="img/Captura-108.JPG" /></p>
+<p><strong>Mostrar la historia del repositorio incluyendo todas las ramas.</strong></p>
+<p><img alt="Mostrar historia del repositorio incluyendo ramas" src="img/Captura-109.JPG" /></p>
+<p><strong>Eliminar la rama bibliografia.</strong></p>
+<p><em>Comando <code>`git branch -d</code> borra de forma local la rama</em>.</p>
+<p><img alt="Eliminar la rama bibliografía" src="img/Captura-110.JPG" /></p>
+<p><strong>Mostrar de nuevo la historia del repositorio incluyendo todas las ramas.</strong></p>
+<p><img alt="Mostrar historia del repositorio después de eliminar la rama" src="img/Captura-111.JPG" /></p>
+<h3 id="ejercicio-5_1">Ejercicio 5</h3>
+<p><strong>Crear la rama bibliografia.</strong></p>
+<p><img alt="Crea la rama bibliografía" src="img/Captura-112.JPG" /></p>
+<p><strong>Cambia a la rama bibliografia.</strong></p>
+<p><img alt="Cambiar a la rama bibliografía" src="img/Captura-113.JPG" /></p>
+<p><strong>Cambiar el fichero <code>bibliografia.txt</code> para que contenga las siguientes referencias:</strong></p>
+<p><code>Scott Chacon and Ben Straub. Pro Git. Apress. Ryan Hodson.Ry's Git Tutorial. Smashwords (2014)</code></p>
+<p><img alt="Cambiar bibliografia.txt con nuevas referencias" src="img/Captura-114.JPG" /></p>
+<p><strong>Añadir los cambios a la zona de intercambio temporal y hacer un commit con el mensaje <code>Añadida nueva referencia bibliográfica</code>.</strong></p>
+<p><img alt="Añadir cambios a la zona de intercambio temporal y hacer commit" src="img/Captura-115.JPG" /></p>
+<p><strong>Cambiar a la rama main.</strong></p>
+<p><img alt="Cambiar a la rama main" src="img/Captura-116.JPG" /></p>
+<p><strong>Cambiar el fichero <code>bibliografia.txt</code> para que contenga las siguientes referencias:</strong></p>
+<p><code>Chacon, S. and Straub, B. Pro Git Apress. Loeliger, J. and McCullough, M. Version control with Git. O´Reilly.</code></p>
+<p><img alt="Cambiar bibliografía.txt con otras referencias" src="img/Captura-117.JPG" /></p>
+<p><strong>Añadir los cambios a la zona de intercambio temporal y hacer un commit con el mensaje <code>Añadida nueva referencia bibliográfica.</code></strong></p>
+<p><img alt="Añadir cambios a la zona de intercambio temporal y hacer commit" src="img/Captura-118.JPG" /></p>
+<p><strong>Fusionar la rama bibliografia con la rama main.</strong></p>
+<p><img alt="Fusionar la rama bibliografía con main" src="img/Captura-119.JPG" /></p>
+<p><strong>Resolver el conflicto dejando el fichero <code>bibliografia.txt</code> con las referencias:</strong></p>
+<p><em>Se resuelve el conflicto combinando ambas líneas y borrando la primera línea del segundo texto.</em></p>
+<p><code>Chacon, S. and Straub, B. Pro Git. Apress Loeliger, J. and McCullough, M. Version control with Git. O´Reilly Hodson, R. Ry´s Git Tutorial. Smashwords (2014)</code></p>
+<p><img alt="Resolver el conflicto en bibliografia.txt" src="img/Captura-120.JPG" /></p>
+<p><strong>Añadir los cambios a la zona de intercambio temporal y hacer un commit con el mensaje <code>Resuelto conflicto de bibliografía</code></strong>.</p>
+<p><img alt="Añadir cambios y hacer commit" src="img/Captura-121.JPG" /></p>
+<p><strong>Mostrar la historia del repositorio incluyendo todas las ramas.</strong></p>
+<p><img alt="Mostrar historia del repositorio incluyendo ramas" src="img/Captura-122.JPG" /></p>
+<h2 id="ejercicios-de-repositorios-remotos">Ejercicios de repositorios remotos</h2>
+<h3 id="ejercicio-1_4">Ejercicio 1</h3>
+<p><strong>Crear un nuevo repositorio público en GitHub con el nombre <code>libro-git</code></strong>.</p>
+<p><img alt="Crear un nuevo repositorio de GitHub" src="img/Captura-123.JPG" /></p>
+<p><strong>Añadirlo al repositorio local del libro</strong>.</p>
+<p><em>Con el comando <code>git remote add origin url</code> puedes añadir un repositorio remoto a tu repositorio local, permitiendo así sincronizar los cambios entre ambos</em>.</p>
+<p><img alt="Añadir repositorio remoto al repositorio local" src="img/Captura-124.JPG" /></p>
+<p><strong>Mostrar todos los repositorios remotos configurados</strong>.</p>
+<p><em>Comando git remote -v</em>.</p>
+<p><img alt="Mostrar repositorios remotos configurados" src="img/Captura-125.JPG" /></p>
+<h3 id="ejercicio-2_4">Ejercicio 2</h3>
+<p><strong>Añadir los cambios del repositorio local al repositorio remoto de GitHub</strong>.</p>
+<p><img alt="Añadir cambios al repositorio remoto" src="img/Captura-126.JPG" /></p>
+<p><strong>Acceder a GitHub y comprobar que se han subido los cambios mostrando el historial de versiones</strong>.</p>
+<p><img alt="Comprobar cambios en GitHub" src="img/Captura-127.JPG" /></p>
+<h3 id="ejercicio-3_4">Ejercicio 3</h3>
+<p><strong>Colaborar en el repositorio remoto <code>libro-git</code> de otro usuario</strong>.</p>
+<p><em>Voy a colaborar con el repositorio <code>libro-git</code> de <code>arammes</code></em>.</p>
+<p><img alt="Colaborar con el repositorio remoto de otro usuario" src="img/Captura-128.JPG" /></p>
+<p><strong>Clonar su repositorio <code>libro-git</code>.</strong></p>
+<p><em>Antes de hacerlo, asegurate de que tienes permisos de colaboración para poder realizar push. Luego, agrega el repositorio remtoo a tu proyecto Git local con el comando <code>git remote add origin URL</code></em>.</p>
+<p><img alt="Añadir remote" src="img/Captura-129.JPG" /></p>
+<p><img alt="Clonar repositorio" src="img/Captura-130.JPG" /></p>
+<p><strong>Añadir el fichero <code>autores.txt</code> que contenga el nombre de usuario y su correo electrónico.</strong></p>
+<p><img alt="Crear fichero" src="img/Captura-131.JPG" /></p>
+<p><strong>Añadir los cambios a la zona de intercambio temporal.</strong></p>
+<p><img alt="Añadir cambios" src="img/Captura-132.JPG" /></p>
+<p><strong>Hacer un commit con el mensaje <code>Añadido autor.</code></strong></p>
+<p><img alt="Hacer commit" src="img/Captura-133.JPG" /></p>
+<p><strong>Subir los cambios al repositorio remoto.</strong></p>
+<p><img alt="Subir cambios" src="img/Captura-134.JPG" /></p>
+<h3 id="ejercicio-4_4">Ejercicio 4</h3>
+<p><strong>Hacer una bifurcación del repositorio remoto <code>asalber/libro-git</code> en GitHub.</strong></p>
+<p><em>Accede al repositorio y haz clic en el botón <code>Fork</code>. Esto creará una copia del repositorio en tu cuenta de GitHub, manteniendo todos sus datos.</em></p>
+<p><img alt="Hacer bifurcación" src="img/Captura-135.JPG" /></p>
+<p><strong>Clonar el repositorio creado en la cuenta de GitHub del usuario.</strong></p>
+<p><img alt="Clonar repositorio" src="img/Captura-136.JPG" /></p>
+<p><strong>Crear una nueva rama autoria y activarla.</strong></p>
+<p><img alt="Crear nueva rama" src="img/Captura-137.JPG" /></p>
+<p><strong>Añadir el nombre de usuario y su correo al fichero <code>autores.txt</code>.</strong></p>
+<p><img alt="Modificar archivo autores.txt" src="img/Captura-138.JPG" /></p>
+<p><strong>Añadir los cambios a la zona de intercambio temporal.</strong></p>
+<p><img alt="Añadir cambios" src="img/Captura-139.JPG" /></p>
+<p><strong>Hacer un commit con el mensaje <code>Añadido nuevo autor.</code></strong></p>
+<p><img alt="Hacer commit" src="img/Captura-140.JPG" /></p>
+<p><strong>Subir los cambios de la rama autoria al repositorio remoto en GitHub.</strong></p>
+<p><img alt="Subir cambios a rama autoria" src="img/Captura-141.JPG" /></p>
+<p><strong>Hacer un Pull Request de los cambios en la rama autoria.</strong></p>
+<p><em>Accede al apartado <code>Pull Request</code>, los Pull Request se utilizan para proponer cambios en un repositorio y solicitar que sean revisados antes de ser fusionados (merge) en la rama principal o otra rama destino</em>.</p>
+<p><img alt="Apartado Pull request" src="img/Captura-142.JPG" /></p>
+<p><em>Compara la rama <code>main</code> con los cambios sucedidos en la rama <code>autoría</code> y haz clic en <code>Create Pull Request</code></em>.</p>
+<p><img alt="Crear Pull Request" src="img/Captura-143.JPG" /></p>
+<p><em>Añade un título al <code>Pull Request</code>, opcionalmente también puedes añadirle una descripción y tags, una vez añadido espera a que se publique la solicitud de merge.</em></p>
+<p><img alt="Solicitud merge publicada" src="img/Captura-144.JPG" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

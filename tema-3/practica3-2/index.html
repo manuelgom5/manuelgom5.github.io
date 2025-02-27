@@ -1,0 +1,1014 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://manuelgom5.github.io/mi-proyecto/tema-3/practica3-2/">
+      
+      
+        <link rel="prev" href="../practica3-1/">
+      
+      
+        <link rel="next" href="../practica3-3/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+    
+    
+      
+        <title>Actividad 3.2 - Despiegue de Aplicaciones con Node Express y Netify - Mkdocs Manuel Gómez</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practica-32-despliegue-de-aplicaciones-con-node-express" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mkdocs Manuel Gómez" class="md-header__button md-logo" aria-label="Mkdocs Manuel Gómez" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mkdocs Manuel Gómez
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Actividad 3.2 - Despiegue de Aplicaciones con Node Express y Netify
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mkdocs Manuel Gómez" class="md-nav__button md-logo" aria-label="Mkdocs Manuel Gómez" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Mkdocs Manuel Gómez
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-2/practica2-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.1 - Instalación y configuración servidor Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-2/practica2-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.2 - Autenticación en Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-2/practica2-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.3 - Proxy inverso con Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-2/practica2-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.4 - Balanceo de carga con proxy inverso en Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-2/practica2-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.5 - Proxy inverso y balanceo de carga con SSL en NGINX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-2/practica2-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.6 (Ampliación) - Configuración de un servidor Nginx con Hosts Virtuales y directorios de usuario
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica3-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 3.1 - Instalación de Tomcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Actividad 3.2 - Despiegue de Aplicaciones con Node Express y Netify
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 3.2 - Despiegue de Aplicaciones con Node Express y Netify
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#practica-32-despliegue-de-aplicaciones-con-node-express" class="md-nav__link">
+    <span class="md-ellipsis">
+      Práctica 3.2: Despliegue de aplicaciones con Node Express
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Práctica 3.2: Despliegue de aplicaciones con Node Express">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-de-nodejs-express-y-test-de-la-primera-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalación de Node.js, Express y test de la primera aplicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#despliegue-de-una-nueva-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Despliegue de una nueva aplicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuestiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuestiones
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practica-34-despliegue-de-una-aplicacion-react-en-netlify-paas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Práctica 3.4: Despliegue de una aplicación React en Netlify (PaaS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-nuestra-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de nuestra aplicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aplicacion-para-netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aplicación para Netlify
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proceso-de-despliegue-en-netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proceso de despliegue en Netlify
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#despliegue-mediante-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Despliegue mediante CLI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#despliegue-mediante-conexion-con-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Despliegue mediante conexión con Github
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica3-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 3.3 - Despliegue de una aplicación Flask (Python)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-4/practica4-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 4.1 - Configuración de un servidor DNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-5/practica5-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 5.1 - Ejercicios Git y GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-6/practica6-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.1 - Dockerización del despliegue de una aplicación con Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-6/practica6-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.2 - Despliegue de una aplicación PHP con Nginx y MySQL usando Docker y docker-compose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-6/practica6-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.3 - Servidor web con usuarios autenticados mediante servicio de directorio (LDAP)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#practica-32-despliegue-de-aplicaciones-con-node-express" class="md-nav__link">
+    <span class="md-ellipsis">
+      Práctica 3.2: Despliegue de aplicaciones con Node Express
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Práctica 3.2: Despliegue de aplicaciones con Node Express">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-de-nodejs-express-y-test-de-la-primera-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalación de Node.js, Express y test de la primera aplicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#despliegue-de-una-nueva-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Despliegue de una nueva aplicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuestiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuestiones
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practica-34-despliegue-de-una-aplicacion-react-en-netlify-paas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Práctica 3.4: Despliegue de una aplicación React en Netlify (PaaS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-nuestra-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de nuestra aplicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aplicacion-para-netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aplicación para Netlify
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proceso-de-despliegue-en-netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proceso de despliegue en Netlify
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#despliegue-mediante-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Despliegue mediante CLI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#despliegue-mediante-conexion-con-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Despliegue mediante conexión con Github
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Actividad 3.2 - Despiegue de Aplicaciones con Node Express y Netify</h1>
+
+<p><strong>Autor: Manuel Gómez Ruiz</strong></p>
+<p><strong>Asignatura: Despliegue de Aplicaciones Web</strong></p>
+<p><strong>Fecha: 21/11/2024</strong></p>
+<p><strong>Curso: 2º de Desarrollo de Aplicaciones Web</strong></p>
+<h2 id="practica-32-despliegue-de-aplicaciones-con-node-express">Práctica 3.2: Despliegue de aplicaciones con Node Express</h2>
+<h3 id="introduccion">Introducción</h3>
+<p>Detén el servicio de Tomcat para evitar problemas, con el comando <strong>sudo systemctl stop tomcat10.service</strong>.</p>
+<p><img alt="Detener el servicio Tomcat" src="img/Captura-1.JPG" /></p>
+<h3 id="instalacion-de-nodejs-express-y-test-de-la-primera-aplicacion">Instalación de Node.js, Express y test de la primera aplicación</h3>
+<p>Actualizamos los repositorios de la máquina virtual, con el comando <strong>sudo apt update</strong>.</p>
+<p><img alt="Terminal para actualizar repositorios" src="img/Captura-2.JPG" /></p>
+<p>Instalamos los repositorios <strong>nodejs</strong> y <strong>npm</strong> para poder después instalar y utilizar el plugin <strong>express.js</strong>, para ello usa el comando <strong>sudo apt -y install nodejs npm</strong>.</p>
+<p><img alt="Terminal que instala el repositorio nodejs y npm" src="img/Captura-3.JPG" /></p>
+<p>Comprobación de que se han instalado correctamente.</p>
+<p><img alt="Muestra la version de node y npm" src="img/Captura-4.JPG" /></p>
+<p>Usando <strong>npm</strong> instalamos el plugin <strong>express</strong>, comando <strong>sudo npm install -g express</strong>.</p>
+<p><img alt="Instala el plugin express" src="img/Captura-5.JPG" /></p>
+<p>Crea un nuevo repositorio, accede a él e inicializa un nuevo proyecto usando npm.</p>
+<p><img alt="Comandos para inicializar repositorio" src="img/Captura-6.JPG" /></p>
+<p>Instala <strong>express</strong> para este proyecto local, comando <strong>npm install express</strong>.</p>
+<p><img alt="Comando para instalar express" src="img/Captura-7.JPG" /></p>
+<p>Crea el archivo de muestra <strong>app.js</strong> y accede al archivo que se habrá creado al inicializar el proyecto y añade el contenido que aparece a continuación.</p>
+<pre><code>const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) =&gt; {
+    res.send('Hello. Welcome to this blog')
+})
+
+app.listen(port, () =&gt; {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
+</code></pre>
+<p><img alt="Contenido de app.js" src="img/Captura-8.JPG" /></p>
+<p>Despliega el proyecto con el comando <strong>node app.js</strong> y visualiza los resultados.</p>
+<p><img alt="Comando de despliegue" src="img/Captura-9.JPG" /></p>
+<p><img alt="Resultado" src="img/Captura-10.JPG" /></p>
+<h3 id="despliegue-de-una-nueva-aplicacion">Despliegue de una nueva aplicación</h3>
+<p>Vamos ahora a realizar el despliegue de una aplicación de terceros para ver cómo es el proceso.</p>
+<p>Clonar el repositorio a nuesta máquina, con el comando <strong>git clone https://github.com/contentful/the-example-app.nodejs.git</strong>:</p>
+<p><img alt="Comando clonación" src="img/Captura-11.JPG" /></p>
+<p>Instalamos las librerias necesarias, para ello introduce el comando <strong>npm install</strong> y vuelve en 10 minutos.</p>
+<p><img alt="Comando instalación" src="img/Captura-12.JPG" /></p>
+<p>Despliega la aplicación web con el comando <strong>npm run start:dev</strong>.</p>
+<p><img alt="Despliegue" src="img/Captura-14.JPG" /></p>
+<p><img alt="Resultado despliegue" src="img/Captura-15.JPG" /></p>
+<h3 id="cuestiones">Cuestiones</h3>
+<p>Cuando ejecutáis el comando npm run start:dev, lo que estáis haciendo es ejecutar un script:</p>
+<p><strong>¿Donde podemos ver que script se está ejecutando?</strong></p>
+<p>En el archivo <strong>package.json</strong> de tu proyecto.</p>
+<p><strong>¿Qué comando está ejecutando?</strong></p>
+<p>Esta ejecutando el comando <strong>node ./bin/www</strong>.</p>
+<p><img alt="Contenido archivo package.json" src="img/Captura-16.JPG" /></p>
+<h3 id="practica-34-despliegue-de-una-aplicacion-react-en-netlify-paas">Práctica 3.4: Despliegue de una aplicación React en Netlify (PaaS)</h3>
+<p>Nos crearemos un directorio para albergar la aplicación con el nombre que queramos. En ese directorio, crearemos los 3 archivos (dos .html y un .js) que conformarán nuestra sencilla aplicación de ejemplo:</p>
+<p><img alt="Creación nuevo directorio" src="img/Captura-17.JPG" /></p>
+<h3 id="creacion-de-nuestra-aplicacion">Creación de nuestra aplicación</h3>
+<p>Al primer archivo lo llamaré <strong>head.html</strong> y tendrá el siguiente contenido:</p>
+<p><img alt="Archivo principal" src="img/Captura-18.JPG" /></p>
+<p>El segundo será llamado <strong>tail.html</strong>.</p>
+<p><img alt="Archivo secundario" src="img/Captura-19.JPG" /></p>
+<p>El script será llamado <strong>aplicacion.js</strong>.</p>
+<p><img alt="Script JS" src="img/Captura-20.JPG" /></p>
+<p>Como hacemos siempre a la hora de crear una apliación usando <strong>Node.js</strong>, inicializamos el proyecto, con el comando <strong>npm init</strong>.</p>
+<p><img alt="Inicialización proyecto" src="img/Captura-21.JPG" /></p>
+<p>Corremos el programa para probar en local que funciona perfectamente, comando <strong>node aplicacion.js</strong>.</p>
+<p><img alt="Correr el programa" src="img/Captura-22.JPG" /></p>
+<p><img alt="Resultado en navegador de head.html" src="img/Captura-23.JPG" /></p>
+<p><img alt="Resultado de tail.html" src="img/Captura-24.JPG" /></p>
+<p>En <strong>package.json</strong> sustituye la línea dentro del bloque <strong>script</strong> añadiendo la línea de <strong>"start": "node aplicacion.js"</strong> para evitar problemas y que nos funcione en la plataforma PaaS.</p>
+<p><img alt="Sustituición package.json" src="img/Captura-25.JPG" /></p>
+<h3 id="aplicacion-para-netlify">Aplicación para Netlify</h3>
+<p>Puesto que el interés en este módulo radica en el proceso de despliegue, suponiendo que la parte de desarrollo ya es abordada en otros módulos, vamos a utilizar una aplicación de ejemplo que nos ahorre tiempo para centrarnos en el despliegue.</p>
+<p>Clonamos el repositorio <strong>color-shades-generator</strong>.</p>
+<p><img alt="Comando clonación" src="img/Captura-26.JPG" /></p>
+<h3 id="proceso-de-despliegue-en-netlify">Proceso de despliegue en Netlify</h3>
+<h3 id="despliegue-mediante-cli">Despliegue mediante CLI</h3>
+<p>Instalamos el CLI de Netlify <strong>netlify-cli</strong>.</p>
+<p><img alt="Comando instalación" src="img/Captura-27.JPG" /></p>
+<p>Iniciamos sesión en Netlify, comando <strong>netlify login</strong>.</p>
+<p><img alt="Imagen proceso" src="img/Captura-28.JPG" /></p>
+<p>Vete a tu perfil, entra en OAuth y crea una nueva clave de acceso.</p>
+<p><img alt="Imagen token generado" src="img/Captura-29.JPG" /></p>
+<p>Copiamos y guardamos el token devuelto.</p>
+<p><img alt="Imagen exportación" src="img/Captura-30.JPG" /></p>
+<p>Exportamos el token y lo establecemos como variable de entorno.</p>
+<p><img alt="Comando exportación" src="img/Captura-31.JPG" /></p>
+<p>Volvemos a iniciar sesión.</p>
+<p><img alt="Inicio de sesión" src="img/Captura-32.JPG" /></p>
+<p>Bueno, tenemos el código de nuestra aplicación, tenemos nuestra cuenta en Netlify y tenemos el CLI necesario para ejecutar comandos desde el terminal en esa cuenta... ¿Podemos proceder al despliegue sin mayores complicaciones?</p>
+<p>La respuesta es NO, como buenos desarrolladores y en base a experiencias anteriores, ya sabéis que hay que hacer un build de la aplicación para, posteriormente, desplegarla. Vamos a ello.</p>
+<p>En primer lugar, como sabemos, debemos instalar todas las dependencias que vienen indicadas en el archivo <strong>package.json</strong>:</p>
+<p>Instalamos npm, comando <strong>npm install</strong>.</p>
+<p><img alt="Comando instalación" src="img/Captura-33.JPG" /></p>
+<p>Creamos una versión del proyecto optimizada para producción, con el comando <strong>npm run build</strong>.</p>
+<p><img alt="Resultado ejecución del comando" src="img/Captura-34.JPG" /></p>
+<p>Desplegamos el proyecto usando Netlify con el comando <strong>netlify deploy</strong>.</p>
+<p><img alt="Despliegue con Netlify" src="img/Captura-35.JPG" /></p>
+<p>Accede a la URL que aparece en <strong>Website draft URL</strong>.</p>
+<p><img alt="Enlace de nuestro proyecto en Netlify" src="img/Captura-36.JPG" /></p>
+<p><img alt="Resultado en navegador" src="img/Captura-37.JPG" /></p>
+<p>Desplegamos de nuevo, pero esta vez usando <strong>netlify deploy --prod</strong>, para obtener una url más clara.</p>
+<p><img alt="Comando despliegue" src="img/Captura-38.JPG" /></p>
+<p>Accede a la URL que aparece en <strong>Website URL</strong>.</p>
+<p><img alt="Nuevo resultado despliegue" src="img/Captura-39.JPG" /></p>
+<h3 id="despliegue-mediante-conexion-con-github">Despliegue mediante conexión con Github</h3>
+<p>Borramos nuestro sitio de Netlify para evitar cualquier problema o conflicto.</p>
+<p><img alt="Eliminamos sitio" src="img/Captura-40.JPG" /></p>
+<p>Eliminamos nuestro directorio personal <strong>color-shades-generator</strong>, para así poder empezar de 0, comando <strong>rm -rf</strong>.</p>
+<p><img alt="Borramos nuestro directorio" src="img/Captura-42.JPG" /></p>
+<p>Clonar nuevo proyecto con <strong>wget https://github.com/StackAbuse/color-shades-generator/archive/refs/heads/main.zip</strong>.</p>
+<p><img alt="Clonamos el nuevo repositorio" src="img/Captura-43.JPG" /></p>
+<p>Crea un nuevo repositorio y descomprime lo descargado anteriormente con <strong>wget</strong>, comando <strong>unzip</strong> para descomprimir.</p>
+<p><img alt="Proyecto Git" src="img/Captura-44.JPG" /></p>
+<p>Crea un nuevo repositorio en GitHub.</p>
+<p><img alt="Comando realización" src="img/Captura-45.JPG" /></p>
+<p>Inicializa el repositorio personal descargado.</p>
+<p><img alt="Git init y add" src="img/Captura-46.JPG" /></p>
+<p>Haz un nuevo commit con los cambios.</p>
+<p><img alt="Git commit" src="img/Captura-47.JPG" /></p>
+<p>Referencia la carpeta local con el repositorio recién creado en github, con el comando <strong>git remote add</strong> y después introduce <strong>git push -u origin main</strong> para subir el contenido del commit.</p>
+<p><img alt="Git push" src="img/Captura-48.JPG" /></p>
+<p>Importa el repositorio creado en Github desde Netlify.</p>
+<p><img alt="Importar desde Git" src="img/Captura-49.JPG" /></p>
+<p>Le indicamos que no acceda a todos nuestros repositorios sino sólo al repositorio que necesitamos.</p>
+<p><img alt="Instalación Netlify en Git" src="img/Captura-50.JPG" /></p>
+<p>Introducimos el nombre de nuestro sitio y desplegamos la aplicación.</p>
+<p><img alt="Cambio de nombre del sitio web" src="img/Captura-51.JPG" /></p>
+<p><img alt="Despliegue" src="img/Captura-52.JPG" /></p>
+<p>Cuando finalice el despliegue cambia el nombre de tu sitio web añadiéndole tu nombre.</p>
+<p><img alt="Cambio de nombre" src="img/Captura-53.JPG" /></p>
+<p>Lo que hemos conseguido de esta forma es que, cualquier cambio que hagamos en el proyecto y del que hagamos commit y push en Github, automáticamente genere un nuevo despliegue en Netlify. Es el principio de lo que más adelante veremos como despliegue continuo.</p>
+<p>Comprueba si puedes acceder al archivo <strong>robots.txt</strong> desde el navegador utilizando la URL de tu sitio en Netlify.</p>
+<p><img alt="Visualización en navegador de robots.txt" src="img/Captura-54.JPG" /></p>
+<p>Modificar archivo <strong>robots.txt</strong> para que incluya tu nombre, este archivo está dentro de la carpeta <strong>public</strong>.</p>
+<p><img alt="Modificación robots.txt" src="img/Captura-55.JPG" /></p>
+<p>Haz un nuevo <strong>commit</strong> y <strong>push</strong>, para subir los cambios realizados en el archivo <strong>robot.txt</strong> a tu repositorio de GitHub.</p>
+<p><img alt="Git add, push y commit" src="img/Captura-56.JPG" /></p>
+<p>Comprueba en el dashboard de Netlify que se ha producido un nuevo deploy de la aplicación hace escasos segundos</p>
+<p><img alt="Dashboard Netlify" src="img/Captura-57.JPG" /></p>
+<p>Accede a <strong>robots.txt</strong> desde el navegador y comprueba que, efectivamente, se ve reflejado el cambio.</p>
+<p><img alt="Acceso a robots.txt desde navegador" src="img/Captura-58.JPG" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

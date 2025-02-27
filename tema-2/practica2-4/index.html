@@ -1,0 +1,1000 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://manuelgom5.github.io/mi-proyecto/tema-2/practica2-4/">
+      
+      
+        <link rel="prev" href="../practica2-3/">
+      
+      
+        <link rel="next" href="../practica2-5/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+    
+    
+      
+        <title>Actividad 2.4 - Balanceo de carga con proxy inverso en Nginx - Mkdocs Manuel Gómez</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practica-24-balanceo-de-carga-con-proxy-inverso-en-nginx" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mkdocs Manuel Gómez" class="md-header__button md-logo" aria-label="Mkdocs Manuel Gómez" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mkdocs Manuel Gómez
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Actividad 2.4 - Balanceo de carga con proxy inverso en Nginx
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mkdocs Manuel Gómez" class="md-nav__button md-logo" aria-label="Mkdocs Manuel Gómez" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Mkdocs Manuel Gómez
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.1 - Instalación y configuración servidor Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.2 - Autenticación en Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.3 - Proxy inverso con Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Actividad 2.4 - Balanceo de carga con proxy inverso en Nginx
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.4 - Balanceo de carga con proxy inverso en Nginx
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#practica-24-balanceo-de-carga-con-proxy-inverso-en-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Práctica 2.4 - Balanceo de carga con proxy inverso en Nginx
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Práctica 2.4 - Balanceo de carga con proxy inverso en Nginx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objetivo-de-la-practica-configurar-nginx-como-proxy-inverso-y-balanceador-de-carga-para-distribuir-el-trafico-web-entre-varios-servidores-mejorando-eficiencia-disponibilidad-y-resiliencia-del-sitio-el-trafico-se-redirigira-aleatoriamente-entre-los-servidores-y-en-caso-de-fallo-de-uno-las-peticiones-se-enviaran-automaticamente-al-otro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivo de la práctica: Configurar Nginx como proxy inverso y balanceador de carga para distribuir el tráfico web entre varios servidores, mejorando eficiencia, disponibilidad y resiliencia del sitio. El tráfico se redirigirá aleatoriamente entre los servidores, y en caso de fallo de uno, las peticiones se enviarán automáticamente al otro.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-servidor-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración del servidor principal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importante-crea-un-nuevo-servidor-que-sea-una-clonacion-del-servidor-principal-con-la-opcion-activada-para-que-tengan-diferentes-ips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importante: Crea un nuevo servidor que sea una clonación del servidor principal, con la opción activada para que tengan diferentes IPS.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-servidor-clonado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración del servidor clonado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-proxy-inverso-para-balanceo-de-carga" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración del Proxy Inverso para balanceo de carga
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprobaciones-servidor-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprobaciones Servidor 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprobaciones-servidor-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprobaciones Servidor 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprobacion-del-balanceo-de-carga-cuando-cae-un-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprobación del balanceo de carga cuando cae un servidor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuestiones-finales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuestiones finales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuestion-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuestión 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuestion-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuestión 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuestion-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuestión 3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 2.5 - Proxy inverso y balanceo de carga con SSL en NGINX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.6 (Ampliación) - Configuración de un servidor Nginx con Hosts Virtuales y directorios de usuario
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-3/practica3-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 3.1 - Instalación de Tomcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-3/practica3-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad 3.2 - Despiegue de Aplicaciones con Node Express y Netify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-3/practica3-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 3.3 - Despliegue de una aplicación Flask (Python)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-4/practica4-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 4.1 - Configuración de un servidor DNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-5/practica5-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 5.1 - Ejercicios Git y GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-6/practica6-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.1 - Dockerización del despliegue de una aplicación con Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-6/practica6-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.2 - Despliegue de una aplicación PHP con Nginx y MySQL usando Docker y docker-compose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema-6/practica6-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.3 - Servidor web con usuarios autenticados mediante servicio de directorio (LDAP)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#practica-24-balanceo-de-carga-con-proxy-inverso-en-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Práctica 2.4 - Balanceo de carga con proxy inverso en Nginx
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Práctica 2.4 - Balanceo de carga con proxy inverso en Nginx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objetivo-de-la-practica-configurar-nginx-como-proxy-inverso-y-balanceador-de-carga-para-distribuir-el-trafico-web-entre-varios-servidores-mejorando-eficiencia-disponibilidad-y-resiliencia-del-sitio-el-trafico-se-redirigira-aleatoriamente-entre-los-servidores-y-en-caso-de-fallo-de-uno-las-peticiones-se-enviaran-automaticamente-al-otro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivo de la práctica: Configurar Nginx como proxy inverso y balanceador de carga para distribuir el tráfico web entre varios servidores, mejorando eficiencia, disponibilidad y resiliencia del sitio. El tráfico se redirigirá aleatoriamente entre los servidores, y en caso de fallo de uno, las peticiones se enviarán automáticamente al otro.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-servidor-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración del servidor principal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importante-crea-un-nuevo-servidor-que-sea-una-clonacion-del-servidor-principal-con-la-opcion-activada-para-que-tengan-diferentes-ips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importante: Crea un nuevo servidor que sea una clonación del servidor principal, con la opción activada para que tengan diferentes IPS.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-servidor-clonado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración del servidor clonado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-proxy-inverso-para-balanceo-de-carga" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración del Proxy Inverso para balanceo de carga
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprobaciones-servidor-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprobaciones Servidor 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprobaciones-servidor-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprobaciones Servidor 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprobacion-del-balanceo-de-carga-cuando-cae-un-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprobación del balanceo de carga cuando cae un servidor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuestiones-finales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuestiones finales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuestion-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuestión 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuestion-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuestión 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuestion-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuestión 3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Actividad 2.4 - Balanceo de carga con proxy inverso en Nginx</h1>
+
+<p><strong><em>Autor: Manuel Gómez Ruiz</em></strong></p>
+<p><strong><em>Asignatura: Despliegue de Aplicaciones Web</em></strong></p>
+<p><strong><em>Fecha: 25/10/2024</em></strong></p>
+<p><strong><em>Curso: 2º de Desarrollo de Aplicaciones Web</em></strong></p>
+<h2 id="practica-24-balanceo-de-carga-con-proxy-inverso-en-nginx">Práctica 2.4 - Balanceo de carga con proxy inverso en Nginx</h2>
+<h3 id="objetivo-de-la-practica-configurar-nginx-como-proxy-inverso-y-balanceador-de-carga-para-distribuir-el-trafico-web-entre-varios-servidores-mejorando-eficiencia-disponibilidad-y-resiliencia-del-sitio-el-trafico-se-redirigira-aleatoriamente-entre-los-servidores-y-en-caso-de-fallo-de-uno-las-peticiones-se-enviaran-automaticamente-al-otro">Objetivo de la práctica: Configurar Nginx como proxy inverso y balanceador de carga para distribuir el tráfico web entre varios servidores, mejorando eficiencia, disponibilidad y resiliencia del sitio. El tráfico se redirigirá aleatoriamente entre los servidores, y en caso de fallo de uno, las peticiones se enviarán automáticamente al otro.</h3>
+<h3 id="configuracion-del-servidor-principal">Configuración del servidor principal</h3>
+<h3 id="importante-crea-un-nuevo-servidor-que-sea-una-clonacion-del-servidor-principal-con-la-opcion-activada-para-que-tengan-diferentes-ips">Importante: Crea un nuevo servidor que sea una clonación del servidor principal, con la opción activada para que tengan diferentes IPS.</h3>
+<p>Primero, debes desvincular el enlace simbólico para que la plantilla de Nginx que habíamos configurado deje de visualizarse, para ello dirigete a la ruta <strong>/etc/nginx/sites-enabled</strong> con el comando <strong>cd /etc/nginx/sites-enabled</strong> y utiliza el comando <strong>unlink</strong> junto al nombre del archivo de configuración de tu servidor.</p>
+<p><img alt="Deshacer enlace simbólico" src="img/Captura-1.JPG" /></p>
+<p>Usa <strong>ls -l</strong> para verificar que el archivo esté desvinculado.</p>
+<p><img alt="Comprobación" src="img/Captura-2.JPG" /></p>
+<p>Cambia el nombre de la carpeta que está dentro de <strong>/var/www/</strong> para configurar el sitio web específico.</p>
+<p><img alt="Cambia el nombre" src="img/Captura-3.JPG" /></p>
+<p>Accede a <strong>/var/www/webserver/html</strong> y crea el fichero <strong>index.html</strong>, con el comando <strong>sudo nano /var/www/webserver/html/index.html</strong>, después añade el contenido que desees, en mi caso voy a usar un HTML muy básico que muestre el mensaje <strong>Este es el servidor web 1</strong> para indicar que estamos accediendo al servidor principal.</p>
+<p><img alt="Creamos fichero index.html" src="img/Captura-4.JPG" /></p>
+<p>Renombra la configuración en <strong>/etc/nginx/sites-available</strong></p>
+<p><img alt="Cambiamos nombre directorio" src="img/Captura-5.JPG" /></p>
+<p>Edita el archivo de configuración que acabamos de cambiar el nombre (<strong>/etc/nginx/sites-available/webserver</strong>), y especifica la ruta del directorio en la directiva <strong>root</strong>, para que muestre el nuevo <strong>index.html</strong>. También, cambia el nombre en la directiva <strong>web_server</strong> y añade las IPs que podrán acceder al servidor, los cuales van a ser el cliente, el servidor proxy y la máquina clonada.</p>
+<p><img alt="Archivo configuración" src="img/Captura-6.JPG" /></p>
+<p>Creamos el nuevo enlace simbólico, utilizando el comando <strong>ln -s /etc/nginx/sites-available/webserver /etc/nginx/sites-enabled</strong>, y luego confirma que esté activo con <strong>ls -l</strong>. Ahora, el <strong>index.html</strong> del servidor principal debería mostrarse.</p>
+<p><img alt="Enlace simbólico" src="img/Captura-7.JPG" /></p>
+<p>Reiniciamos para guardar cambios con <strong>sudo systemctl restart nginx</strong>, después verificamos la sintaxis en los archivos de configuración con <strong>sudo nginx -t</strong> y revisamos el estado de Nginx con <strong>sudo systemctl status nginx</strong>.</p>
+<p><img alt="Reiniciamos y comprobamos funcionamiento" src="img/Captura-8.JPG" /></p>
+<h3 id="configuracion-del-servidor-clonado">Configuración del servidor clonado</h3>
+<p>Repite el proceso anterior para configurar el servidor clonado, el cual recibirá peticiones junto con el servidor principal.</p>
+<p>Desvincular el enlace simbólico para que la plantilla de Nginx que habíamos configurado deje de visualizarse, para ello dirigete a la ruta <strong>/etc/nginx/sites-enabled</strong> con el comando <strong>cd /etc/nginx/sites-enabled</strong> y utiliza el comando <strong>unlink</strong> junto al nombre del archivo de configuración de tu servidor.</p>
+<p><img alt="Deshacer enlace simbólico" src="img/Captura-9.JPG" /></p>
+<p>Comprueba que haya funcionado con un <strong>ls -l</strong></p>
+<p><img alt="Comprobación" src="img/Captura-10.JPG" /></p>
+<p>Cambia el nombre de la carpeta en <strong>/etc/nginx/sites-available</strong> y usa <strong>ln -s</strong> para crear un nuevo <strong>enlace simbólico</strong>, comprobando después que este activo.</p>
+<p><img alt="Renombramos carpeta y creamos enlace simbólico" src="img/Captura-11.JPG" /></p>
+<p>Cambia el nombre de la carpeta que está dentro de <strong>/var/www/</strong></p>
+<p><img alt="Cambia el nombre de la carpeta" src="img/Captura-12.JPG" /></p>
+<p>Accede a <strong>/var/www/webserver/html</strong> y crea un fichero <strong>index.html</strong>, con el comando <strong>sudo nano /var/www/webserver/html/index.html</strong>, después añade el contenido, en mi caso he añadido otro HTML básico que ponga el mensaje <strong>Servidor Web 2</strong>, que indicará cuándo se redirige al servidor clonado.</p>
+<p><img alt="Creamos ficheros index.html" src="img/Captura-13.JPG" /></p>
+<p>Modificamos archivo de configuración <strong>/etc/nginx/sites-available/webserver</strong>, estableciendo la ruta al nuevo <strong>index.html</strong>, cambiando el nombre en la directiva <strong>web_server</strong>, añadiendo un encabezado HTTP y añadiendo las IPs que podrán acceder a este servidor.</p>
+<p><img alt="Archivo configuración" src="img/Captura-14.JPG" /></p>
+<p>Reiniciamos para guardar cambios, con el comando <strong>sudo systemctl restart nginx</strong>, después realizamos las comprobaciones de sintaxis <strong>sudo nginx -t</strong> y ejecución <strong>sudo systemctl status nginx</strong> para revisar el estado de Nginx y determinar que todo esté correcto.</p>
+<p><img alt="Reiniciamos y comprobamos funcionamiento" src="img/Captura-15.JPG" /></p>
+<h3 id="configuracion-del-proxy-inverso-para-balanceo-de-carga">Configuración del Proxy Inverso para balanceo de carga</h3>
+<p>Configuramos un nuevo archivo de configuración  al cual llamaré <strong>balanceo</strong>, este script permitirá que las peticiones se distribuyan de forma aleatoria entre los dos servidores.</p>
+<p><img alt="Archivo Config" src="img/Captura-16.JPG" /></p>
+<p>Deshacemos el enlace simbólico anterior del proxy inverso, que ahora será reemplazado por el archivo <strong>balanceo</strong> que permitirá tanto balanceo de carga como proxy inverso.</p>
+<p><img alt="Desactivar enlace simbólico" src="img/Captura-17.JPG" /></p>
+<p>Hacemos el enlace simbólico, que vincula el archivo <strong>balanceo</strong> a <strong>sites_enabled</strong>.</p>
+<p><img alt="Enlace simbólico" src="img/Captura-18.JPG" /></p>
+<p>Comprobamos sintaxis del archivo de configuración, reiniciamos Nginx y después mostramos su estado, para verificar que la configuración sea correcta y esté activa.</p>
+<p><img alt="Reiniciamos" src="img/Captura-19.JPG" /></p>
+<p>Edita el archivo de configuración <strong>C:\Windows\system32\drivers\hosts</strong> para permitir el acceso al dominio configurado como proxy (<strong>www.balanceo.com</strong>), el cual distribuirá las peticiones, así como a las direcciones IP de los servidores backend a los cuales el proxy redirigirá las solicitudes.</p>
+<p><img alt="Archivo hosts" src="img/Captura-20.JPG" /></p>
+<p>Resultado al entrar en <strong>*www.backend_hosts.com</strong></p>
+<h3 id="comprobaciones-servidor-1">Comprobaciones Servidor 1</h3>
+<p>Ahora es el momento de comprobar el resultado, accede al <strong>server_name</strong> de tu servidor proxy desde el navegador del cliente, y este deberá de reenviarte a uno de los dos servidores de forma aleatoria, en mi caso mi <strong>server_name</strong> es <strong>*www.balance.com</strong>.</p>
+<p><img alt="Resultado accediendo al Servidor 1" src="img/Captura-21.JPG" /></p>
+<h3 id="comprobaciones-servidor-2">Comprobaciones Servidor 2</h3>
+<p>Tras recargar una o varias veces nos aparecerá nuestro otro servidor.</p>
+<p><img alt="Resultado accediendo al Servidor 2" src="img/Captura-22.JPG" /></p>
+<h3 id="comprobacion-del-balanceo-de-carga-cuando-cae-un-servidor">Comprobación del balanceo de carga cuando cae un servidor</h3>
+<p>Paramos el servidor 2, es decir, el clon  con el comando <strong>sudo systemctl stop nginx</strong> y comprobamos que todas las peticiones ahora pasan por el servidor principal.</p>
+<p><img alt="Stop al servidor 2" src="img/Captura-23.JPG" /></p>
+<p><img alt="Comprobación" src="img/Captura-24.JPG" /></p>
+<p>Ahora vamos a hacer lo mismo, pero con el servidor principal, paralo e inicia de nuevo el servidor clonado con el comando <strong>sudo systemctl start nginx</strong></p>
+<p><img alt="Stop al servidor 1" src="img/Captura-25.JPG" /></p>
+<p><img alt="Comprobación" src="img/Captura-26.JPG" /></p>
+<p>Al parar el servicio Nginx que controla nuestro servidor web, las peticiones dejarán de poder pasar por ese servidor y serán todas reenviadas al servidor que funciona correctamente.</p>
+<h3 id="cuestiones-finales">Cuestiones finales</h3>
+<h3 id="cuestion-1">Cuestión 1</h3>
+<p><strong>Busca información de qué otros métodos de balanceo se pueden aplicar con Nginx y describe al menos 3 de ellos.</strong></p>
+<p>NGINX ofrece varios métodos de balanceo de carga:</p>
+<ul>
+<li>
+<p>Round Robin: Este método, es sencillo y el más usado, se encarga de enviar aleatoriamente a distintos servidores las peticiones de los clientes, es ideal cuando los servidores tienen recursos muy parecidos.</p>
+</li>
+<li>
+<p>Conexiones mínimas: Método dinámico que dirige las nuevas peticiones al servidor con menos conexiones, es útil cuando los servidores tienen distintas capacidades, ayudando a evitar la sobrecarga de peticiones.</p>
+</li>
+<li>
+<p>Hash de IP: La dirección IP del cliente se usa como clave para determinar el servidor que debe gestionar la petición del cliente, asegurando que todas las peticiones de un cliente específico se envién siempre al mismo servidor. Este método es ideal para aplicaciones de redes sociales, ya que facilita conexiones persistentes, mejorando la consistencia de la experiencia del usuario.</p>
+</li>
+</ul>
+<h3 id="cuestion-2">Cuestión 2</h3>
+<p><strong>Si quiero añadir 2 servidores web más al balanceo de carga, describe detalladamente qué configuración habría que añadir y dónde.</strong></p>
+<p>Solo debes añadir los dos servidores al archivo de configuración de nuestro servidor proxy, en este caso el archivo de configuración de <strong>balanceo</strong>. Para esto, abre el archivo de configuración de Nginx correspondiente y localiza el bloque <strong>upstream</strong> que define el grupo de servidores backend. Agrega las direcciones IP de los dos nuevos servidores dentro de este bloque, guarda los cambios y reinicia el servicio de Nginx para aplicar la nueva configuración.</p>
+<p>Después, asegúrate de que el sistema cliente puede resolver los nombres de los nuevos servidores agregando sus direcciones IP y nombres en el archivo <strong>hosts</strong> del cliente. En Windows, el archivo <strong>hosts</strong> se encuentra en <strong>C:\Windows\System32\drivers\etc\hosts</strong>.
+Al final de este archivo, añade una línea para cada nuevo servidor con el formato IP dirección servidor_nombre.</p>
+<p>Esto permitirá que el cliente pueda acceder correctamente a los nuevos servidores.</p>
+<h3 id="cuestion-3">Cuestión 3</h3>
+<p><strong>Describe todos los pasos que deberíamos seguir y configurar para realizar el balanceo de carga con una de las webs de prácticas anteriores.</strong>
+<strong>Indicad la configuración de todas las máquinas (webservers, proxy...) y de sus servicios</strong></p>
+<p>En los servidores web, se debe modificar la directiva <strong>server_name</strong>.</p>
+<p>En el servidor proxy, se creará un nuevo archivo de configuración donde se definirá un bloque <strong>upstream</strong> que incluya las direcciones IP de cada servidor web. Esto permitirá que el balanceador de carga conozca qué servidores están disponibles para manejar las solicitudes.</p>
+<p>Además, se añadirá la directiva <strong>proxy_pass</strong> dentro del bloque <strong>server</strong> para redirigir las solicitudes hacia el grupo de servidor definidos en el bloque <strong>upstream</strong>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
